@@ -1,0 +1,730 @@
+body {
+    height: 100%;
+    width: 100%;
+    background-image: url(https://img.freepik.com/premium-photo/white-gold-marble-texture-tile-wallpaper-luxurious-background_303085-10654.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+    margin: 0;
+    margin-bottom: 50px;
+  }
+  
+  #logo {
+    width: 120px;
+    height: 100px;
+  }
+  
+  #header {
+    position: relative;
+  }
+  
+  #nav {
+    position: relative;
+    bottom: 70px;
+    float: right;
+  }
+  
+  #nav a {
+    display: inline-block;
+    padding: 0 30px;
+    text-decoration: none;
+    color: #D4AF37;
+  }
+  
+footer {
+    position: relative; 
+    bottom: 0;
+    width: 100%;
+    height: auto; 
+    background-color: #D4AF37; 
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  footer ul {
+    list-style: none; 
+    margin: 0;
+    padding: 0;
+  }
+  
+  footer li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  footer a {
+    text-decoration: none;
+    color: white;
+    background-color: #D4AF37; 
+  }
+  
+  footer a:hover {
+    color: #D4AF37;
+    background-color: white;
+  }
+  
+  /* #footer1 {
+    position: absolute;
+    background-color: #D4AF37;
+    top: 1180px;
+  } */
+  
+  #cart {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    bottom: 10px;
+  }
+  #insta{
+    position: relative;
+    right: 70px;
+    bottom: 10px;
+    width: 90px;
+    height: 90px;
+  }
+  .insta{
+  position: relative;
+  left: 40px;
+  bottom: 70px;
+  }
+  #fera{
+    position: relative;
+    bottom: 50px;
+    right: 70px;
+    width: 70px;
+    height: 70px;
+  }
+  .fera{
+    position: relative;
+    left: 40px;
+    bottom: 100px;
+  }
+  .footer-icons a:hover {
+    text-decoration: none;
+    color: none;
+  }
+  
+  .footer-icons a:hover img {
+    filter: none;
+    transform: none;
+  }
+  .footer-content .col-md-4 {
+    text-align: center;
+  }
+  .footer-icons p {
+    margin-right: 10px;
+  }
+  #shop{
+    position: relative;
+    right: 10px;
+  }
+  #visa{
+    width: 60px;
+    height: 60px;
+  }
+  #mastercard{
+    width: 60px;
+    height: 60px;
+  }
+  #maestro{
+    width: 80px;
+    height: 50px;
+  }
+  #tymebank{
+    width: 95px;
+    height: 60px;
+  }
+  #applepay{
+    width: 100px;
+    height: 60px;
+  }
+  
+  /* home */
+  
+  #h2 {
+    font-size: 40px;
+    font-family: sans-serif;
+    margin-bottom: 30px;
+    position: relative;
+   bottom: 60px;
+  }
+  
+  #para {
+    font-size: 18px;
+    line-height: 2pc;
+    margin-bottom: 30px;
+    font-family: sans-serif;
+    position: relative;
+    bottom: 20px;
+  }
+  
+  #explore {
+    padding: 10px 20px;
+    background-color: #D4AF37;
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    bottom: 10px;
+  }
+  
+  .imge {
+    animation: rotateImage 3s infinite linear;
+    position: relative;
+    bottom: 30px;
+  }
+  
+  
+  @keyframes rotateImage {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  
+  #title1 {
+    position: relative;
+    left: 370px;
+    bottom: 110px;
+  
+  }
+  
+  #Popular1 {
+    height: 200px;
+  }
+  
+  #item {
+    list-style-type: none;
+    /* position: relative;
+    right: 40px; */
+  }
+  
+  
+  #heading {
+    position: relative;
+    left: 550px;
+    bottom: 550px;
+    color: #D4AF37;
+  }
+  
+  
+  .card-group{
+    display: flex;
+    justify-content: space-between;
+  }
+  #pict{
+    height: 475px;
+  }
+  
+  .card-group{
+    margin-bottom: 100px;
+    margin-top: 50px;
+    display: flex
+  }
+  
+  #card1 {
+   width: 250px;
+   margin-left: 20px;
+  }
+  #pop{
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  #prices{
+    position: relative;
+    top: 25px;
+    background-color: none;
+    color: #888;
+  }
+  
+  #price{
+    position: relative;
+    top: 23px;
+    background-color: none;
+    color: #888;
+  }
+  
+  #pri{
+    background-color: none;
+    color: #888;
+  }
+  
+  #pric{
+    color: #888;
+    background-color: none;
+    position: relative;
+    top: 23px;
+  }
+
+  .foot{
+    background-color: #D4AF37;
+    color: white;
+  }
+.card {
+            width: 20rem; /* Reduce the width of the card */
+            margin: 10px; /* Add some margin between cards */
+}
+ #card1, #category1, #category2, #category3, #category4 {
+            display: inline-block; /* Make the cards inline */
+}
+#plus {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    left: 170px;
+  }
+
+  
+  /* About */
+  
+  
+  #about {
+    background-color: black;
+    color: #D4AF37;
+    padding: 20px;
+    max-width: 900px;
+    line-height: 1.5;
+    font-size: larger;
+    text-align: center;
+    margin-left: 300px;
+    position: relative;
+    bottom: 20px;
+  }
+  
+  #about-us {
+    color: #D4AF37;
+    position: relative;
+    left: 120px;
+    bottom: 90px;
+  }
+  
+  .cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  #pic{
+    width: 900px;
+    height: 400px;
+    position: relative;
+    left: 250px;
+    bottom: 60px;
+  }
+  
+  /* Base styles */
+#logo {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive styles for header image */
+@media (max-width: 768px) {
+    #logo {
+        width: 200px; /* Smaller logo on mobile */
+    }
+}
+
+/* Responsive styles for navigation */
+@media (max-width: 768px) {
+    #nav {
+        flex-direction: column;
+        align-items: start;
+    }
+}
+
+/* Responsive styles for the title image */
+@media (max-width: 768px) {
+    #title1 {
+        width: 100%; /* Full width on mobile */
+        height: auto;
+    }
+}
+
+/* Responsive styles for the about image */
+@media (max-width: 768px) {
+    #pic {
+        width: 100%; /* Full width on mobile */
+        height: auto;
+    }
+}
+
+  /* Products */
+  
+  #H3{
+  color: #D4AF37;
+  text-decoration: underline;
+  position: relative;
+  left: 600px;
+  }
+  
+  .nav-underline {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style-type: none;
+  }
+  
+  .nav-underline a {
+    text-decoration: none;
+  
+  }
+  
+  #toggler {
+    position: relative;
+    right: 1300px;
+    top: 20px;
+    color: #D4AF37;
+  }
+  
+  #search {
+    width: 300px;
+  
+  }
+  
+  #but {
+    color: #D4AF37;
+    outline: #D4AF37;
+  }
+  
+  #links .nav-link {
+    color: #D4AF37;
+  }
+  
+  #main {
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5%;
+    padding: 5%;
+    text-align: center;
+  }
+  
+  /* div{
+    width: 300px;
+    height: 550px;
+    } */
+  
+  img {
+    width: 250px;
+  }
+  
+  
+  #main-div img {
+    width: 50%;
+  }
+  #viewmore{
+    background-color: #CFB53B;
+    color: white;
+    border: none;
+    border-radius: 4px;
+  }
+  .purchase{
+    background-color: #CFB53B;
+    color: white;
+    border: none;
+  }
+  
+  /* The Modal (background) */
+  .modal {
+    display: none;
+    position: fixed; 
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    overflow: auto; 
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: 10% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; 
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+  
+  @keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  #modalImg {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  #modalDescription {
+    margin-top: 15px;
+    text-align: left;
+  }
+  
+  .item-price {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  #main-div {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .item-image {
+    width: 100%;
+    max-width: 300px; 
+    margin-top: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .item-image:hover {
+    transform: scale(1.05); 
+  }
+
+  #items-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* Adjust the gap as needed */
+    text-align: center;
+}
+
+.item-container {
+    flex: 0 1 calc(33.333% - 16px); /* Adjust the width as needed */
+    /* Add other styles such as padding, border, etc. */
+}
+
+
+
+  /* admin */
+  
+  .tbody{
+    margin-bottom: 40px;
+  }
+  
+  /* Checkout */
+  .remove-item-btn{
+    background-color: #D4AF37;
+    border: none;
+    border-radius: 5px;
+  }
+
+#table-bordered{
+    margin-bottom: 60px;
+}
+
+.btn5{
+  width: 100px;
+  position: relative;
+  left: 350px;
+  top: 30px;
+  background-color: #D4AF37;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+.checkout-item-image{
+  height: 70px;
+  width: 70px;
+}
+
+/* payment */
+.row {
+  display: -ms-flexbox; 
+  display: flex;
+  -ms-flex-wrap: wrap; 
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; 
+  flex: 25%;
+  background-color: #f2f2f2;
+  border: 1px solid #D4AF37;
+  height: auto;
+  margin-bottom: 160px;
+}
+
+.col-50 {
+  -ms-flex: 50%; 
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; 
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container5 {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid #D4AF37;
+  border-radius: 3px;
+  height: 680px;
+}
+
+.input5 {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #D4AF37;
+  border-radius: 3px;
+  font-style: italic;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn5 {
+  background-color: #D4AF37;
+  color: white;
+  padding: 12px;
+  border: none;
+  width: 15%;
+  border-radius: 5px;
+  font-size: 17px;
+  position: relative;
+  left: 500px;
+}
+
+#continue-shopping{
+  background-color: #D4AF37;
+  color: white;
+  padding: 12px;
+  position: relative;
+  left: 100px;
+  top: 28px;
+}
+
+.btn5:hover {
+  background-color: #ffffff;
+  color: #D4AF37;
+}
+
+span.price {
+  float: right;
+  color: black;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+
+.message{
+  position: relative;
+  top: 150px;
+  left: 550px;
+}
+
+#tnx{
+  color: #D4AF37;
+}
+
+#place{
+  color: #D4AF37;
+  position: relative;
+  left: 90px;
+}
+
+.return{
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #D4AF37;
+  color: white;
+  position: relative;
+  left: 135px;
+  padding: 12px;
+}
+
+.return:hover{
+  background-color: white;
+  color: #D4AF37;
+}
+
+.cart-item-image{
+  width: 80px;
+  height: 70px;
+}
+
+.price{
+  font-size: medium;
+  font-weight: lighter;
+  margin-top: 50px;
+}
+
+.container .subtotal span{
+  font-size: large;
+  font-weight: bold;
+  border-top:2px solid #D4AF37;
+}
+
+.container .subtotal {
+  font-weight: bold; 
+  /* border-top:2px solid #D4AF37; */
+  
+}
+.button-pressed {
+  transform: scale(0.9);
+  transition: transform 0.1s ease; 
+}
+
+input{
+  color: #D4AF37
+  ;
+}
+
+#continue-shopping:hover{
+  background-color: white;
+  color: #D4AF37;
+}
