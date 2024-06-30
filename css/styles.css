@@ -6,6 +6,30 @@ body {
     background-size: cover;
     margin: 0;
     margin-bottom: 50px;
+    scrollbar-color: #D4AF37 #f9f9f9;
+  }
+  #scrollbar-container {
+    overflow-y: scroll;
+    -ms-overflow-style: -ms-autohiding-scrollbar; /* For Internet Explorer */
+    scrollbar-width: thin; /* For Firefox */
+  }
+  
+  #scrollbar-container::-webkit-scrollbar {
+    width: 10px; /* For Webkit browsers (Chrome, Safari, etc.) */
+    height: 10px;
+  }
+  
+  #scrollbar-container::-webkit-scrollbar-thumb {
+    background-color: #D4AF37; /* Gold color */
+    border-radius: 10px;
+  }
+  
+  #scrollbar-container::-webkit-scrollbar-track {
+    background-color: #f9f9f9; /* Light gray color */
+  }
+  
+  #scrollbar-container::-webkit-scrollbar-corner {
+    background-color: transparent;
   }
   
   #logo {
@@ -130,13 +154,13 @@ footer {
     width: 80px;
     height: 50px;
   }
-  #tymebank{
-    width: 95px;
-    height: 60px;
-  }
   #applepay{
     width: 100px;
     height: 60px;
+  }
+  #tymebank{
+    width: 85px;
+    height: 50px;
   }
   
   /* home */
