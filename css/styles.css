@@ -402,13 +402,8 @@ footer {
   #but {
     color: #D4AF37;
     outline: #D4AF37;
-    position: relative;
-    right: 10px;
   }
-  #but:hover{
-    background-color: #D4AF37;
-    color: white;
-  }
+  
   #links .nav-link {
     color: #D4AF37;
   }
@@ -536,7 +531,8 @@ footer {
 }
 
 .item-container {
-    flex: 0 1 calc(33.333% - 16px); 
+    flex: 0 1 calc(33.333% - 16px); /* Adjust the width as needed */
+    /* Add other styles such as padding, border, etc. */
 }
 
 
@@ -561,53 +557,19 @@ footer {
 .btn5{
   width: 100px;
   position: relative;
-  /* left: 650px; */
+  left: 350px;
   top: 30px;
   background-color: #D4AF37;
   color: white;
   border-radius: 5px;
   border: none;
 }
-.btn5:hover{
-  background-color: white;
-  color: #D4AF37;
-}
-.remove-item-btn{
-  background-color: #D4AF37;
-  color: white;
-}
-.remove-item-btn:hover{
-  background-color: #ffffff;
-  color: #D4AF37;
-}
 .checkout-item-image{
   height: 70px;
   width: 70px;
 }
-#foot{
-  margin-top: 70px;
-}
 
-.clear-cart-btn {
-  background-color: #D4AF37;
-  color: white;
-  border: none;
-  padding: 9px;
-  border-radius: 5px;
-  cursor: pointer;
-  position: relative;
-  left: 1250px;
-  top: -10px;
-}
-
-.clear-cart-btn:hover {
-  background-color: white;
-  color: #D4AF37;
-}
 /* payment */
-#foots{
-  margin-top: 250px;
-}
 .row {
   display: -ms-flexbox; 
   display: flex;
@@ -700,6 +662,7 @@ span.price {
   color: black;
 }
 
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
 @media (max-width: 800px) {
   .row {
     flex-direction: column-reverse;
