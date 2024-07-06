@@ -536,8 +536,7 @@ footer {
 }
 
 .item-container {
-    flex: 0 1 calc(33.333% - 16px); /* Adjust the width as needed */
-    /* Add other styles such as padding, border, etc. */
+    flex: 0 1 calc(33.333% - 16px); 
 }
 
 
@@ -562,18 +561,49 @@ footer {
 .btn5{
   width: 100px;
   position: relative;
-  left: 350px;
+  /* left: 650px; */
   top: 30px;
   background-color: #D4AF37;
   color: white;
   border-radius: 5px;
   border: none;
 }
+.btn5:hover{
+  background-color: white;
+  color: #D4AF37;
+}
+.remove-item-btn{
+  background-color: #D4AF37;
+  color: white;
+}
+.remove-item-btn:hover{
+  background-color: #ffffff;
+  color: #D4AF37;
+}
 .checkout-item-image{
   height: 70px;
   width: 70px;
 }
+#foot{
+  margin-top: 70px;
+}
 
+.clear-cart-btn {
+  background-color: #D4AF37;
+  color: white;
+  border: none;
+  padding: 9px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  left: 1250px;
+  top: -10px;
+}
+
+.clear-cart-btn:hover {
+  background-color: white;
+  color: #D4AF37;
+}
 /* payment */
 .row {
   display: -ms-flexbox; 

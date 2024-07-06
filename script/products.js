@@ -7,13 +7,13 @@ function CreateItem(id, name, category, image, description, quantity, price){
     this.quantity = quantity
     this.price = price
 
-}
+};
 
 let item1 = new CreateItem(1, 'Black 2 piece gym wear', 'Gym Wear', 'https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/Screenshot%202024-06-11%20173050.png?raw=true','The most comfortable and stylish gymwear you can ever find, it is long sleeve with long pants protecting you from transfering the sweat.', 1, 500.00)
 
 let item2 = new CreateItem(2, 'Pink 2 piece skirt gymwear','Gym Wear' ,'https://raw.githubusercontent.com/Nikilitha26/hostedImagesEndOfModule/1cd522b4aa0e28f1e2eb2eaad01fc70d042c25be/Screenshot%202024-06-14%20100259.png', 'The best skirt gymwear, a 2 piece where there are thights in which you can put your phone in.', 1, 450.00)
  
-let item4 = new CreateItem(4, 'Blue 4 Piece Gym Wear', 'Gym Wear', 'https://raw.githubusercontent.com/Nikilitha26/hostedImagesEndOfModule/57ef3987bb74394dd4a2d440640c34cb85f7bab1/Screenshot%202024-06-14%20100748.png', 'The best waist trainer fast waist slim.',1,  800.00  )
+let item4 = new CreateItem(4, 'Blue 4 Piece Gym Wear', 'Gym Wear', 'https://raw.githubusercontent.com/Nikilitha26/hostedImagesEndOfModule/57ef3987bb74394dd4a2d440640c34cb85f7bab1/Screenshot%202024-06-14%20100748.png', 'The best waist trainer for fast waist slim.',1,  800.00  )
 
 let item7 = new CreateItem(7, 'Black Intelligent Touch Temperature Display Cup,', 'Gym Essentials','https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/Screenshot%202024-06-05%20133250.png?raw=true', 'The best carry bag for gym, everything fits', 1, 300.00  )
 
@@ -206,6 +206,24 @@ items.forEach(item => {
 
     
 });
+
+// display products
+function displayProducts() {
+    const productsContainer = document.getElementById('products-container');
+    productsContainer.innerHTML = '';
+    products.forEach((product) => {
+        const productCard = document.createElement('div');
+        productCard.innerHTML = `
+            <h2>${product.name}</h2>
+            <p>Price: ${product.price}</p>
+            <p>Description: ${product.description}</p>
+        `;
+        productsContainer.appendChild(productCard);
+    });
+}
+
+displayProducts();
+
 window.addEventListener('storage', function(event) {
     if (event.key === 'items') {
 
