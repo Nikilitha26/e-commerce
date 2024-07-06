@@ -402,6 +402,12 @@ footer {
   #but {
     color: #D4AF37;
     outline: #D4AF37;
+    position: relative;
+    right: 10px;
+  }
+  #but:hover{
+    background-color: #D4AF37;
+    color: white;
   }
   
   #links .nav-link {
@@ -416,7 +422,7 @@ footer {
     padding: 5%;
     text-align: center;
   }
-  
+ 
   /* div{
     width: 300px;
     height: 550px;
@@ -442,7 +448,6 @@ footer {
     border: none;
   }
   
-  /* The Modal (background) */
   .modal {
     display: none;
     position: fixed; 
@@ -526,13 +531,12 @@ footer {
   #items-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px; /* Adjust the gap as needed */
+    gap: 16px; 
     text-align: center;
 }
 
 .item-container {
-    flex: 0 1 calc(33.333% - 16px); /* Adjust the width as needed */
-    /* Add other styles such as padding, border, etc. */
+    flex: 0 1 calc(33.333% - 16px); 
 }
 
 
@@ -540,14 +544,71 @@ footer {
   /* admin */
   
   .tbody{
-    margin-bottom: 40px;
+    margin-bottom: 60px;
   }
-  
+  #btnd{
+    position: relative;
+    top: -10px;
+    left: 5px;
+    margin-top: 30px;
+    padding: 4px;
+    background-color: #D4AF37 !important;
+    color: white !important;
+    border: none !important;
+  }
+  #btnd:hover{
+  background-color: #ffffff !important;
+  color: #D4AF37 !important;
+  }
+  .table-bordered{
+    position: relative;
+    top: 0px;
+  }
+  #navb{
+    position: relative;
+    top: -70px
+  }
+  #navb a {
+    display: inline-block;
+    padding: 0 30px;
+    text-decoration: none;
+    color: #D4AF37;
+  }
+  #closse{
+    background-color: #D4AF37 !important;
+    color: #ffffff !important;
+  }
+  #closse:hover{
+    background-color: #ffffff !important;
+    color: #D4AF37 !important;
+  }
+#addProductButton{
+  background-color: #D4AF37;
+    color: #ffffff;
+}
+#addProductButton:hover{
+  background-color: #ffffff;
+  color: #D4AF37;
+}
+#clearInputsButton{
+  background-color: #D4AF37;
+  color: #ffffff;
+}
+#clearInputsButton:hover{
+  background-color: #ffffff;
+  color: #D4AF37;
+}
+
   /* Checkout */
   .remove-item-btn{
     background-color: #D4AF37;
     border: none;
     border-radius: 5px;
+    color: white;
+  }
+  .remove-item-btn:hover{
+    background-color: #ffffff;
+    color: #D4AF37;
   }
 
 #table-bordered{
@@ -568,8 +629,31 @@ footer {
   height: 70px;
   width: 70px;
 }
+#foot{
+  margin-top: 70px;
+}
+
+.clear-cart-btn {
+  background-color: #D4AF37;
+  color: white;
+  border: none;
+  padding: 9px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  left: 1250px;
+  top: -10px;
+}
+
+.clear-cart-btn:hover {
+  background-color: white;
+  color: #D4AF37;
+}
 
 /* payment */
+#foots{
+  margin-top: 180px;
+}
 .row {
   display: -ms-flexbox; 
   display: flex;

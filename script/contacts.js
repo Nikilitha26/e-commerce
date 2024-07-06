@@ -26,3 +26,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         form.reset();
     });
 });
+
+const currentYear = document.getElementById('current-year');
+currentYear.textContent = new Date().getFullYear();
