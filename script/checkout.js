@@ -145,3 +145,6 @@ function removeItem(itemId) {
 }
  
 document.addEventListener('DOMContentLoaded', renderCheckoutTable);
+
+const currentYear = document.getElementById('current-year');
+currentYear.textContent = new Date().getFullYear();
