@@ -90,7 +90,7 @@ function renderCheckoutTable() {
       attachEventListeners();
 
       document.getElementById('continue-shopping').addEventListener('click', function() {
-        window.location.href = './product.html'; 
+        window.location.href = './products.html'; 
     });
     
     document.getElementById('checkout-button1').addEventListener('click', function() {
