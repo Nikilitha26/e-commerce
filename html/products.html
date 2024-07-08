@@ -131,15 +131,16 @@
               <button id="but" class="btn btn-outline-warning" type="submit">Search</button>
             </form>
           </div>
-          <div class="sort-dropdown">
-            <label for="sort-select">Sort by:</label>
+         <div class="sort-dropdown">
+            <label class="sort" for="sort-select">Sort by:</label>
             <select id="sort-select">
-              <option value="price-high-to-low">Price (High to Low)</option>
-              <option value="price-low-to-high">Price (Low to High)</option>
-              <option value="alphabetical">Alphabetical</option>
+                <option class="sorted" value="price-high-to-low">Price (High to Low)</option>
+                <option class="sorted" value="price-low-to-high">Price (Low to High)</option>
+                <option class="sorted" value="alphabetical">Alphabetical</option>
+                <option class="sorted" value="category">Category</option>
             </select>
-          </div>
-            <div id="items-list"></div>
+
+        <div id="items-list"></div>
          
           
        

@@ -338,7 +338,7 @@ footer {
 /* Responsive styles for header image */
 @media (max-width: 768px) {
     #logo {
-        width: 200px; /* Smaller logo on mobile */
+        width: 200px; /
     }
 }
 
@@ -353,7 +353,7 @@ footer {
 /* Responsive styles for the title image */
 @media (max-width: 768px) {
     #title1 {
-        width: 100%; /* Full width on mobile */
+        width: 100%;
         height: auto;
     }
 }
@@ -361,7 +361,7 @@ footer {
 /* Responsive styles for the about image */
 @media (max-width: 768px) {
     #pic {
-        width: 100%; /* Full width on mobile */
+        width: 100%;
         height: auto;
     }
 }
@@ -398,7 +398,17 @@ footer {
     width: 300px;
   
   }
-  
+  #search-input{
+    background-color: white !important;
+    color: #D4AF37;
+  }
+  .sort{
+    font-weight: bold;
+    color: #D4AF37;
+  }
+  .sorted{
+    color: #D4AF37 !important;
+  }
   #but {
     color: #D4AF37;
     outline: #D4AF37;
@@ -598,6 +608,35 @@ footer {
   background-color: #ffffff;
   color: #D4AF37;
 }
+.edit-btn{
+  background-color: #D4AF37;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin-top: 3px;
+}
+.edit-btn:hover{
+  background-color: white;
+  color: #D4AF37;
+}
+.remove-btn{
+  background-color: #D4AF37;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+.remove-btn:hover{
+  background-color: white;
+  color: #D4AF37;
+}
+.iimage{
+  width: 100px;
+  height: 100px;
+}
+.pprice{
+  width: 70px;
+}
 
   /* Checkout */
   .remove-item-btn{
@@ -724,7 +763,7 @@ label {
   border-radius: 5px;
   font-size: 17px;
   position: relative;
-  left: 500px;
+  left: 700px;
 }
 
 #continue-shopping{
@@ -732,10 +771,9 @@ label {
   color: white;
   padding: 12px;
   position: relative;
-  left: 100px;
+  left: 300px;
   top: 28px;
 }
-
 .btn5:hover {
   background-color: #ffffff;
   color: #D4AF37;
@@ -830,8 +868,8 @@ input{
   font-size: 35px; 
   color:  #D4AF37;
   position: relative;
-  bottom: 195px;
-  right: 520px;
+  bottom: 155px;
+  right: 460px;
 }
 
 #row{
@@ -914,18 +952,18 @@ input{
  bottom: 130px;
 }
 .form-label{
-  font-size: 25px;
+  font-size: 19px;
   color: #D4AF37;
   text-align: center;
 }
 .form-control{
   width: 200px;
   height: 50px;
-  /* background-color: black;
-  color: #D4AF37; */
+ background-color: black !important; 
+  /* color: #D4AF37; */ 
 }
 .form-control::placeholder{
-    color: #D4AF37;
+    color: #D4AF37 !important;
     opacity: 1; 
 }
 
@@ -935,7 +973,7 @@ color: #D4AF37;
 } */
 
 input.form-control{
-color: #D4AF37;
+color: #D4AF37 !important;
 }
 
 #btn{

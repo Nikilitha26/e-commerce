@@ -140,32 +140,40 @@ document.addEventListener('click', function(event) {
         addToCart(itemId);
     }
 });
+document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('add-to-cart')) {
+        let itemId = parseInt(event.target.getAttribute('data-item-id'));
+        addToCart(itemId);
+    }
+});
 
 document.getElementById('sort-select').addEventListener('change', function() {
     const sortValue = this.value;
     let sortedItems;
-
-    switch(sortValue) {
-        case 'price-high-to-low':
-            sortedItems = items.sort((a, b) => b.price - a.price);
-            break;
-        case 'price-low-to-high':
-            sortedItems = items.sort((a, b) => a.price - b.price);
-            break;
-        case 'alphabetical':
-            sortedItems = items.sort((a, b) => a.name.localeCompare(b.name));
-            break;
-        case 'category':
-            sortedItems = items.sort((a, b) => a.category.localeCompare(b.category));
-            break;
-        default:
-            sortedItems = items;
+  
+    switch (sortValue) {
+      case 'price-high-to-low':
+        sortedItems = items.sort((a, b) => b.price - a.price);
+        break;
+      case 'price-low-to-high':
+        sortedItems = items.sort((a, b) => a.price - b.price);
+        break;
+      case 'alphabetical':
+        sortedItems = items.sort((a, b) => a.name.localeCompare(b.name));
+        break;
+      case 'category':
+        sortedItems = items.sort((a, b) => a.category.localeCompare(b.category));
+        break;
+      default:
+        sortedItems = items;
     }
+ 
+
 
     document.getElementById('items-list').innerHTML = '';
-
+  
     renderItems(sortedItems);
-});
+  });
 
 
 items.forEach(item => {
