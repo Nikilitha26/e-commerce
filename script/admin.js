@@ -1,33 +1,52 @@
 
 // Function to add a new item
 function addItem() {
-    console.log('addItem is called');
     const image = document.getElementById('image').value;
     const name = document.getElementById('username').value;
     const description = document.getElementById('description').value;
     const price = document.getElementById('price').value;
-
+  
     const newItem = { image, name, description, price };
-    console.log('New item:', newItem)
-    const items = JSON.parse(localStorage.getItem('items')) || [];
-
+  
+    console.log('New item:', newItem);
+  
+    let items = JSON.parse(localStorage.getItem('items')) || [];
+  
     console.log('Items before adding new item:', items);
-
+  
     items.push(newItem);
     localStorage.setItem('items', JSON.stringify(items));
-
+  
     console.log('Items after adding new item:', JSON.stringify(items));
-
+  
     const addModal = bootstrap.Modal.getInstance(document.getElementById('staticBackdrop'));
     addModal.hide();
-
+  
     alert('Item added!');
-    
+  
     updateItemsTable();
-
     renderItems();
-}
+  }
  
+  function renderItems(items) {
+    const tbody = document.getElementById('products-tbody');
+    tbody.innerHTML = '';
+    items.forEach((product, index) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${product.name}</td>
+        <td>${product.price}</td>
+        <td>${product.description}</td>
+        <td>
+          <button class="btn btn-primary" id="edit-btn-${index}">Edit</button>
+          <button class="btn btn-danger" id="remove-btn-${index}">Remove</button>
+        </td>
+      `;
+      tbody.appendChild(row);
+    });
+  }
+
 // Function to update the items table
 function updateItemsTable() {
     const tableBody = document.querySelector('.table-bordered tbody');
@@ -37,10 +56,10 @@ function updateItemsTable() {
     items.forEach((item, index) => {
         const row = tableBody.insertRow();
         row.innerHTML = `
-            <td><img src="${item.image}" alt="${item.name}" width="50" height="50"></td>
+            <td><img class="iimage" src="${item.image}" alt="${item.name}" width="50" height="50"></td>
             <td>${item.name}</td>
             <td>${item.description}</td>
-            <td>R ${item.price}</td>
+            <td class="pprice">R ${item.price}</td>
             <td>
                 <button class="edit-btn" data-index="${index}">Edit</button>
                 <button class="remove-btn" data-index="${index}">Remove</button>
@@ -116,16 +135,19 @@ function saveChanges(index) {
     const addButton = document.getElementById('addProductButton');
     addButton.textContent = 'Add item';
     
-     // Remove existing event listeners from the add button
-     addButton.replaceWith(addButton.cloneNode(true));
+    // Remove existing event listeners from the add button
+    addButton.replaceWith(addButton.cloneNode(true));
      
-     // Add new event listener to add new items
-     document.getElementById('addProductButton').addEventListener('click', addItem);
+    // Add new event listener to add new items
+    document.getElementById('addProductButton').addEventListener('click', addItem);
 
-     const editModal = bootstrap.Modal.getInstance(document.getElementById('staticBackdrop'));
+    const editModal = bootstrap.Modal.getInstance(document.getElementById('staticBackdrop'));
     editModal.hide();
     
     updateItemsTable();
+
+    // Call displayProducts to update the products table
+    displayProducts();
 }
 
 // Function to remove an item
