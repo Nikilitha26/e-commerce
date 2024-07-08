@@ -599,7 +599,7 @@ footer {
   background-color: #D4AF37;
     color: #ffffff;
     position: relative;
-    top: 50px;
+    top: 0px;
 }
 #addProductButton:hover{
   background-color: #ffffff;
@@ -644,6 +644,10 @@ footer {
 }
 
   /* Checkout */
+#checkout-container{
+  position: relative;
+  top: 370px;
+}
   .remove-item-btn{
     background-color: #D4AF37;
     border: none;
@@ -656,18 +660,25 @@ footer {
   }
 
 #table-bordered{
+  position: relative;
+  top: 100px;
     margin-bottom: 60px;
 }
 
 .btn5{
-  width: 100px;
+  width: 200px;
   position: relative;
-  left: 350px;
-  top: 30px;
+  left: 690px;
+  bottom: 338px;
+  padding: 12px;
   background-color: #D4AF37;
   color: white;
   border-radius: 5px;
   border: none;
+}
+.btn5:hover{
+  background-color: white;
+  color: #D4AF37;
 }
 .checkout-item-image{
   height: 70px;
@@ -686,7 +697,7 @@ footer {
   cursor: pointer;
   position: relative;
   left: 1250px;
-  top: -10px;
+  bottom: 15px;
 }
 
 .clear-cart-btn:hover {
@@ -776,8 +787,10 @@ label {
   color: white;
   padding: 12px;
   position: relative;
-  left: 300px;
-  top: 28px;
+  left: 310px;
+  bottom: 340px;
+  border: none;
+  border-radius: 4px;
 }
 .btn8:hover {
   background-color: #ffffff;
