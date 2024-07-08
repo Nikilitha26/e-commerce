@@ -130,13 +130,13 @@ footer {
     width: 80px;
     height: 50px;
   }
-  #tymebank{
-    width: 95px;
-    height: 60px;
-  }
   #applepay{
     width: 100px;
     height: 60px;
+  }
+  #tymebank{
+    width: 85px;
+    height: 50px;
   }
   
   /* home */
@@ -232,7 +232,16 @@ footer {
   }
   #pop{
     text-align: center;
-    margin-bottom: 50px;
+    margin-top: 80px;
+    text-decoration: underline;
+  }
+
+  .row{
+    margin-top: 50px;
+  }
+
+  .col-md-3{
+    margin-top: 50px;
   }
   
   #prices{
@@ -266,11 +275,14 @@ footer {
     color: white;
   }
 .card {
-            width: 20rem; /* Reduce the width of the card */
-            margin: 10px; /* Add some margin between cards */
+    width: 20rem; 
+    margin: 10px; 
+    border: 2px solid #D4AF37;
+    border-radius: 10px; 
+    box-shadow: 0 0 10px #D4AF37;
 }
  #card1, #category1, #category2, #category3, #category4 {
-            display: inline-block; /* Make the cards inline */
+    display: inline-block;
 }
 #plus {
     width: 40px;
@@ -390,6 +402,12 @@ footer {
   #but {
     color: #D4AF37;
     outline: #D4AF37;
+    position: relative;
+    right: 10px;
+  }
+  #but:hover{
+    background-color: #D4AF37;
+    color: white;
   }
   
   #links .nav-link {
@@ -404,7 +422,7 @@ footer {
     padding: 5%;
     text-align: center;
   }
-  
+ 
   /* div{
     width: 300px;
     height: 550px;
@@ -430,7 +448,6 @@ footer {
     border: none;
   }
   
-  /* The Modal (background) */
   .modal {
     display: none;
     position: fixed; 
@@ -514,13 +531,12 @@ footer {
   #items-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px; /* Adjust the gap as needed */
+    gap: 16px; 
     text-align: center;
 }
 
 .item-container {
-    flex: 0 1 calc(33.333% - 16px); /* Adjust the width as needed */
-    /* Add other styles such as padding, border, etc. */
+    flex: 0 1 calc(33.333% - 16px); 
 }
 
 
@@ -528,14 +544,71 @@ footer {
   /* admin */
   
   .tbody{
-    margin-bottom: 40px;
+    margin-bottom: 60px;
   }
-  
+  #btnd{
+    position: relative;
+    top: -10px;
+    left: 5px;
+    margin-top: 30px;
+    padding: 4px;
+    background-color: #D4AF37 !important;
+    color: white !important;
+    border: none !important;
+  }
+  #btnd:hover{
+  background-color: #ffffff !important;
+  color: #D4AF37 !important;
+  }
+  .table-bordered{
+    position: relative;
+    top: 0px;
+  }
+  #navb{
+    position: relative;
+    top: -70px
+  }
+  #navb a {
+    display: inline-block;
+    padding: 0 30px;
+    text-decoration: none;
+    color: #D4AF37;
+  }
+  #closse{
+    background-color: #D4AF37 !important;
+    color: #ffffff !important;
+  }
+  #closse:hover{
+    background-color: #ffffff !important;
+    color: #D4AF37 !important;
+  }
+#addProductButton{
+  background-color: #D4AF37;
+    color: #ffffff;
+}
+#addProductButton:hover{
+  background-color: #ffffff;
+  color: #D4AF37;
+}
+#clearInputsButton{
+  background-color: #D4AF37;
+  color: #ffffff;
+}
+#clearInputsButton:hover{
+  background-color: #ffffff;
+  color: #D4AF37;
+}
+
   /* Checkout */
   .remove-item-btn{
     background-color: #D4AF37;
     border: none;
     border-radius: 5px;
+    color: white;
+  }
+  .remove-item-btn:hover{
+    background-color: #ffffff;
+    color: #D4AF37;
   }
 
 #table-bordered{
@@ -556,8 +629,31 @@ footer {
   height: 70px;
   width: 70px;
 }
+#foot{
+  margin-top: 70px;
+}
+
+.clear-cart-btn {
+  background-color: #D4AF37;
+  color: white;
+  border: none;
+  padding: 9px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  left: 1250px;
+  top: -10px;
+}
+
+.clear-cart-btn:hover {
+  background-color: white;
+  color: #D4AF37;
+}
 
 /* payment */
+#foots{
+  margin-top: 180px;
+}
 .row {
   display: -ms-flexbox; 
   display: flex;
@@ -727,4 +823,145 @@ input{
 #continue-shopping:hover{
   background-color: white;
   color: #D4AF37;
+}
+
+/* Contacts */
+#contacts{
+  font-size: 35px; 
+  color:  #D4AF37;
+  position: relative;
+  bottom: 195px;
+  right: 520px;
+}
+
+#row{
+  margin-left: 150px;
+}
+
+.col{
+  position: relative;
+  top: 50px;
+  left: 90px;
+}
+#pic1{
+  height: 80px;
+  width: 60px;
+  position: relative;
+  bottom: 120px;
+  left: 30px;
+}
+#pic2{
+  height: 50px;
+  width: 60px;
+  position: relative;
+  bottom: 105px;
+  left: 37px;
+}
+#pic3{
+  width: 60px;
+  height: 70px;
+  position: relative;
+  bottom: 90px;
+  left: 35px;
+}
+
+
+#pic5{
+  height: 70px;
+  width: 70px;
+  position: relative;
+  bottom: 78px;
+  left: 29px;
+}
+#pic6{
+  height: 1px;
+}
+#forms{
+  font-style: italic;
+  color: #D4AF37;
+  background-color: white;
+  width: 400px;
+}
+
+
+#pe1{
+  position: relative;
+  left: 90px;
+  bottom: 120px;
+  color: #D4AF37;
+}
+#pe2{
+  position: relative;
+  left: 90px;
+  bottom: 105px;
+  color: #D4AF37;
+}
+#pe3{
+  position: relative;
+  left: 93px;
+  bottom: 85px;
+  color: #D4AF37;
+}
+#pe5{
+  position: relative;
+  left: 83px;
+  bottom: 70px;
+  color: #D4AF37;
+}
+#form{
+  position: relative;
+  /* left: 700px; */
+ bottom: 130px;
+}
+.form-label{
+  font-size: 25px;
+  color: #D4AF37;
+  text-align: center;
+}
+.form-control{
+  width: 200px;
+  height: 50px;
+  /* background-color: black;
+  color: #D4AF37; */
+}
+.form-control::placeholder{
+    color: #D4AF37;
+    opacity: 1; 
+}
+
+/* .form-control:hover{
+background-color: black;
+color: #D4AF37;
+} */
+
+input.form-control{
+color: #D4AF37;
+}
+
+#btn{
+  background-color: #D4AF37;
+  border: none;
+  width: 90px;
+  height: 30px;
+  position: relative;
+  top: 20px;
+  left: 160px;
+  border-radius: 8px;
+}
+
+#btn:hover{
+  background-color: white;
+  color: #D4AF37;
+}
+
+.questios{
+position: relative;
+bottom: 190px;
+color: #D4AF37;
+font-weight: bold;
+}
+
+#col{
+position: relative;
+top: 90px;
 }
