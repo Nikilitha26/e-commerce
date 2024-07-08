@@ -28,24 +28,24 @@ function addItem() {
     renderItems();
   }
  
-  function renderItems(items) {
-    const tbody = document.getElementById('products-tbody');
-    tbody.innerHTML = '';
-    items.forEach((product, index) => {
-      const row = document.createElement('tr');
-      row.innerHTML = `
-        <td>${index + 1}</td>
-        <td>${product.name}</td>
-        <td>${product.price}</td>
-        <td>${product.description}</td>
-        <td>
-          <button class="btn btn-primary" id="edit-btn-${index}">Edit</button>
-          <button class="btn btn-danger" id="remove-btn-${index}">Remove</button>
-        </td>
-      `;
-      tbody.appendChild(row);
-    });
-  }
+function renderItems(items) {
+  const tbody = document.getElementById('products-tbody');
+  tbody.innerHTML = '';
+  items.forEach((product, index) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${index + 1}</td>
+      <td>${product.name}</td>
+      <td>${product.price}</td>
+      <td>${product.description}</td>
+      <td>
+        <button class="btn btn-primary" id="edit-btn-${index}">Edit</button>
+        <button class="btn btn-danger" id="remove-btn-${index}">Remove</button>
+      </td>
+    `;
+    tbody.appendChild(row);
+  });
+}
 
 // Function to update the items table
 function updateItemsTable() {

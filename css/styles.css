@@ -552,7 +552,10 @@ footer {
 
 
   /* admin */
-  
+  #ffoott{
+    position: relative;
+    top: 1020px;
+  }
   .tbody{
     margin-bottom: 60px;
   }
@@ -572,7 +575,7 @@ footer {
   }
   .table-bordered{
     position: relative;
-    top: 0px;
+    bottom: 370px;
   }
   #navb{
     position: relative;
@@ -595,6 +598,8 @@ footer {
 #addProductButton{
   background-color: #D4AF37;
     color: #ffffff;
+    position: relative;
+    top: 50px;
 }
 #addProductButton:hover{
   background-color: #ffffff;
@@ -754,7 +759,7 @@ label {
   font-size: 24px;
 }
 
-.btn5 {
+.btn8 {
   background-color: #D4AF37;
   color: white;
   padding: 12px;
@@ -763,7 +768,7 @@ label {
   border-radius: 5px;
   font-size: 17px;
   position: relative;
-  left: 700px;
+  left: 560px;
 }
 
 #continue-shopping{
@@ -774,7 +779,7 @@ label {
   left: 300px;
   top: 28px;
 }
-.btn5:hover {
+.btn8:hover {
   background-color: #ffffff;
   color: #D4AF37;
 }
