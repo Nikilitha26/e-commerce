@@ -1,159 +1,548 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Niki's Flex Fit</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Niki’s Flex Fit</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Satisfy&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+   <!-- Make sure Font Awesome is included -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Font Awesome for profile icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      --gold: #d4a373;
+      --gold-dark: #b97b56;
+      --blush: #f7e9e3;
+      --text-dark: #222;
+      --text-soft: #555;
+      --bg-light: #f4f1ee;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Playfair Display", serif;
+      font-optical-sizing: auto;
+      font-weight: 500;
+      font-style: normal;
+      background-color: #fff;
+      color: var(--text-dark);
+    }
+
+/* nav */
+
+.navbar-nav .nav-link {
+  position: relative;
+  color: inherit; /* default color */
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--gold);
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 50%;
+}
+
+/* Ensure the icon itself can be targeted */
+.navbar .nav-link:hover .profile-icon {
+  color: var(--gold);
+  transition: color 0.3s ease;
+}
+
+
+    a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+      z-index: 1000; 
+    }
+
+    .header a {
+      margin: 0 20px;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    /* .header a.active {
+        color: var(--gold);
+        border-bottom: 2px solid var(--gold);
+        padding-bottom: 2px;
+        margin-bottom: 13px;
+    } */
+
+    .navbar-links a.active,
+    .header a.active {
+      position: relative;
+      color: var(--gold);
+      margin-bottom: 10px;
+      font-size: 20;
+      font-weight: bolder;
+    }
+
+    .navbar-links a.active::after,
+    .header a.active::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -2px;
+      transform: translateX(-50%);
+      width: 50%; 
+      height: 2px;
+      background-color: var(--gold);
+      border-radius: 2px;
+      margin-bottom: -5px;
+    }
+
+    .header a:hover {
+      color: var(--gold);
+    }
+
+    .fa-user{
+      position: relative;
+      left: 300px;
+    }
+
+    .banner {
+      position: relative;
+      background-image: url('https://i.pinimg.com/736x/b5/de/65/b5de65237807371c9436e0aca6875c97.jpg'); 
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 120px 20px;
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 0;
+    }
+
+    .banner h1,
+    .banner p,
+    .banner button {
+      position: relative;
+      z-index: 1;
+    }
+
+    .banner h1 {
+      font-size: 58px;
+      margin-bottom: 15px;
+      font-family: "Satisfy", cursive;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .banner p {
+      font-size: 28px;
+      margin-bottom: 30px;
+      color: #e7dad2;
+    }
+
+    .banner button {
+      font-family: "Playfair Display", serif;
+      font-optical-sizing: auto;
+      font-weight: 600;
+      font-style: normal;
+      padding: 12px 28px;
+      background-color: var(--gold);
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .banner button:hover {
+      background-color: var(--gold-dark);
+    }
+
+    .categories {
+  padding: 60px 20px;
+  background-color: var(--bg-light); /* Soft beige */
+  text-align: center;
+}
+
+.products {
+  padding: 60px 20px;
+  background-color: var(--blush); /* Lighter blush tone */
+  text-align: center;
+}
+
+
+    .categories h2, .products h2 {
+      font-size: 40px;
+      margin-bottom: 40px;
+    }
+
+    .categories h2::after,
+    .products h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background-color: var(--gold);
+      margin: 12px auto 0;
+      border-radius: 2px;
+    }
+
+    .category {
+  position: relative;
+  display: inline-block;
+  width: 250px;
+  height: 250px;
+  margin: 40px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.category .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* dimming effect */
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.category-slideshow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 0;
+}
+    
+.product {
+  position: relative;
+  display: inline-block;
+  margin: 60px;
+  text-align: center;
+  max-width: 160px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.product:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: var(--gold);
+  box-shadow: 0 0 15px rgba(212, 163, 115, 0.4);
+}
+
+.hot-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: var(--gold);
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 2;
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 1px;
+  animation: pulse 1.2s infinite ease-in-out;
+}
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+    .category img {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+
+
+    .product img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.product-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+
+    .category img:hover, .product img:hover {
+      transform: scale(1.05);
+    }
+
+    .category p {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+      pointer-events: none;
+    }
+    
+    .product p {
+  font-size: 14px;
+  color: var(--text-soft);
+  margin: 0;
+}
+
+.product p:last-of-type {
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--gold-dark);
+  margin-top: 8px;
+}
+
+    /* footer */
+    .footer {
+      background-color: white;
+      padding: 30px 20px;
+      text-align: center;
+      border-top: 1px solid #eee;
+    }
+
+    .footer p {
+      color: #999;
+      font-size: 14px;
+    }
+  </style>
 </head>
-
 <body>
-    <div class="home">
-
-        <header>
-            <img id="logo"
-            src="https://raw.githubusercontent.com/Nikilitha26/hostedImagesEndOfModule/main/Screenshot%202024-06-10%20103100.png"
-            alt="Company Logo" width="300" height="150">
-    </header>
-    <ul id="nav" class="nav justify-content-end">
-      <li class="nav-item nav-underline">
-          <a id="bg" class="nav-link active" aria-current="page" href="./index.html">Home</a>
-          </li>
-          <li class="nav-item">
-    <li class="nav-item">
-      <a class="nav-link" href="./html/about.html">About</a>
-    </li>
-  <a class="nav-link" href="./html/products.html">Products</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="./html/admin.html">Admin</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="./html/checkout.html" ><img id="cart"
-      src="https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/Screenshot_2024-06-10_104711-removebg-preview.png?raw=true"
-      alt=""></a></a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="./html/contact.html">Contacts</a>
-</li>
-</ul>
-
-    <h1> <img id="title1" src="https://raw.githubusercontent.com/Nikilitha26/e-commerceHostedImages/2585502dcff33cf447c51d1d158ef5ef980d4a09/Screenshot_2024-06-29_202832-removebg-preview.png" alt=""> </h1>
-
-    <div class="container text-center">
-        <div class="row align-items-start">
-          <div class="col">
-            <h2 id="h2">Unlesh Your Inner Strenght In Style.</h2>
-            <p id="para">Hey there! Wlcome to Niki's Flex Fit. We are delighted to have you with us. <br>We are committed to providing you with the finest and most innovative products <br>and services to assist you in achieving your fitness objectives.Our products <br>are designed to offer the support and comfort you require to remain motivated and <br> achieve your objectives, regardless of whether you are a novice or a seasoned fitness enthusiast.
-                Please explore our assortment of premium products, peruse our captivating narratives, and join our community of like-minded individuals.</p>
-
-                <a href="./html/products.html">
-                    <button id="explore">Explore Items</button>
-                  </a>
-          </div>
-
-
-          <div class="col">
-            <div class="content-right">
-                <img class="imge" src="https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/Screenshot_2024-06-11_081509-removebg-preview.png?raw=true" alt="">
-            </div> 
-          </div>
+  <nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm">
+    <div class="container-fluid d-flex align-items-center">
+  
+      <!-- Logo on left -->
+      <a class="navbar-brand" href="#">
+        <img src="https://nikilitha26.github.io/e-commerceHostedImages/niki_s__1_-removebg-preview.png" alt="Logo" style="height: 60px; width: 100px;">
+      </a>
+  
+      <!-- Toggler for mobile -->
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <!-- Collapse content -->
+      <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
+        <!-- Wrapper to center nav links -->
+        <div class="d-flex justify-content-center flex-grow-1">
+          <ul class="navbar-nav gap-3" id="navLinks">
+            <li class="nav-item">
+              <a class="nav-link active" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./html/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./html/products.html">Products</a>
+            </li>
+            <li class="nav-item" id="adminNavItem">
+              <a class="nav-link" href="./html/admin.html">Admin</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./html/checkout.html">
+                <i class="fas fa-shopping-cart"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./html/contact.html">Contacts</a>
+            </li>
+          </ul>
+        </div>
+  
+        <!-- Profile icon on right -->
+        <div class="nav-item dropdown" id="profileDropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="profileToggle">
+            <i class="fas fa-user-circle profile-icon" style="font-size: 1.5rem;"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" id="profileMenu">
+            <li><a class="dropdown-item" href="./html/login.html" id="loginLink">Login</a></li>
+            <li><a class="dropdown-item" href="./html/register.html" id="registerLink">Register</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="./html/userdetails.html" id="profileLink">Profile</a></li>
+            <li><a class="dropdown-item" href="./html/settings.html" id="settingsLink">Settings</a></li>
+            <li><a class="dropdown-item" href="./html/orders.html" id="ordersLink">Orders</a></li>
+            <li><a class="dropdown-item" href="./html/logout.html" id="logoutLink">Logout</a></li>
+          </ul>
         </div>
       </div>
+    </div>
+  </nav>
+  
 
-      <h2 id="pop">Popular Purchases</h2>
+  <div class="banner">
+    <h1>Unlesh Your Inner Strenght In Style.</h1>
+    <p>Stylish & Functional Gymwear for Women</p>
+    <button>Shop Now</button>
+  </div>
 
-      <div class="row">
-        <div class="col-md-3">
-          <div class="card">
-            <img id="Popular1" src="https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/Screenshot%202024-06-05%20123151.png?raw=true" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">2 Piece Pink Skirt Gym Wear</h5>
-              <p class="card-text">The most comfortable gym skirt with a top that allows you to move as you want with no discomforts.</p>
-              <p>R600.00 <a href="./html/products.html" class="add-to-cart"><img id="plus" src="https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/stock-vector-addition-sign-gold-plated-metalic-icon-logo-vector-removebg-preview.png?raw=true" alt=""></a></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card">
-            <img id="Popular1" src="https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/Screenshot%202024-06-11%20081509.png?raw=true" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">4 Piece Blue Gym Wear</h5>
-              <p class="card-text">The most comfortable gym pants with comfortable tops that allows you to move as you want with no discomforts.</p>
-              <p>R900.00 <a href="./html/products.html" class="add-to-cart"><img id="plus" src="https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/stock-vector-addition-sign-gold-plated-metalic-icon-logo-vector-removebg-preview.png?raw=true" alt=""></a></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card">
-            <img id="Popular1" src="https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/Screenshot%202024-06-05%20133250.png?raw=true" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Intelligent Rechargeable Touch Temperature Display Cup</h5>
-              <p class="card-text">Perfect For Outdoor Activities, Travel, And Fitness. Tracks the temperature.</p>
-              <p>R400.00 <a href="./html/products.html" class="add-to-cart"><img id="plus" src="https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/stock-vector-addition-sign-gold-plated-metalic-icon-logo-vector-removebg-preview.png?raw=true" alt=""></a></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card">
-            <img id="Popular1" src="https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/Screenshot%202024-06-11%20082323.png?raw=true" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title"> Wrist Smart Watch</h5>
-              <p class="card-text"> 5.11cm Square Screen With phone features, 100+ Sports Modes, Fitness Tracker, Outdoor Smartwatch.</p>
-              <p>R1000.00 <a href="./html/products.html" class="add-to-cart"><img id="plus" src="https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/stock-vector-addition-sign-gold-plated-metalic-icon-logo-vector-removebg-preview.png?raw=true" alt=""></a></p>
-            </div>
-          </div>
-        </div>
+  <div class="categories">
+    <h2>Categories</h2>
+  
+    <!-- Gym Wear -->
+    <div class="category">
+      <div class="category-slideshow">
+        <div class="slide active" style="background-image: url('https://raw.githubusercontent.com/Nikilitha26/hostedImagesEndOfModule/57ef3987bb74394dd4a2d440640c34cb85f7bab1/Screenshot%202024-06-14%20100748.png');"></div>
+        <div class="slide" style="background-image: url('https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/Screenshot%202024-06-11%20173050.png?raw=true');"></div>
+        <div class="slide" style="background-image: url('https://raw.githubusercontent.com/Nikilitha26/hostedImagesEndOfModule/1cd522b4aa0e28f1e2eb2eaad01fc70d042c25be/Screenshot%202024-06-14%20100259.png');"></div>
       </div>
+      <div class="overlay"></div>
+      <p>Gym Wear</p>
+    </div>
+  
+    <!-- Gym Essentials -->
+    <div class="category">
+      <div class="category-slideshow">
+        <div class="slide active" style="background-image: url('https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/Screenshot%202024-06-11%20082123.png?raw=true');"></div>
+        <div class="slide" style="background-image: url('https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/Screenshot%202024-06-05%20133250.png?raw=true');"></div>
+        <div class="slide" style="background-image: url('https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/Screenshot%202024-06-05%20132201.png?raw=true');"></div>
+      </div>
+      <div class="overlay"></div>
+      <p>Gym Essentials</p>
+    </div>
+  
+    <!-- Gym Bags -->
+    <div class="category">
+      <div class="category-slideshow">
+        <div class="slide active" style="background-image: url('https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/Screenshot%202024-06-05%20134611.png?raw=true');"></div>
+        <div class="slide" style="background-image: url('https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/Screenshot%202024-06-05%20135804.png?raw=true');"></div>
+        <div class="slide" style="background-image: url('https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/Screenshot%202024-06-05%20134611.png?raw=true');"></div>
+      </div>
+      <div class="overlay"></div>
+      <p>Gym Bags</p>
+    </div>
+  </div>
+  
+  
 
+  <div class="products">
+    <h2>Trending Products</h2>
+    <div class="product">
+      <span class="hot-badge">HOT</span>
+      <img src="https://raw.githubusercontent.com/Nikilitha26/hostedImagesEndOfModule/57ef3987bb74394dd4a2d440640c34cb85f7bab1/Screenshot%202024-06-14%20100748.png" alt="Product 1">
+      <p class="product-name">Blue 4 Piece Gym Wear</p>
+      <p> R800.00</p>
+    </div>
+    <div class="product">
+      <span class="hot-badge">HOT</span>
+      <img src="https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/Screenshot%202024-06-11%20173050.png?raw=true" alt="Product 2">
+      <p class="product-name">Black 2 piece gym wear</p>
+      <p>R1 500.00</p>
+    </div>
+    <div class="product">
+      <span class="hot-badge">HOT</span>
+      <img src="https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/Screenshot%202024-06-05%20132201.png?raw=true" alt="Product 3">
+      <p class="product-name">Black and Pink Waist Trainer</p>
+      <p>R1 300.00</p>
+    </div>
+    <div class="product">
+      <span class="hot-badge">HOT</span>
+      <img src="https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/Screenshot%202024-06-11%20082323.png?raw=true" alt="Product 4">
+      <p class="product-name">Black Gym Wrist Watch </p>
+      <p>R1 600.00</p>
+    </div>
+  </div>
 
-      <footer class="footer-content">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="footer-icons">
-                <ul>
-                <h5>FOLLOW US:</h5><br>
-               <li>
-                  <img id="insta" src="https://raw.githubusercontent.com/Nikilitha26/e-commerceHostedImages/2585502dcff33cf447c51d1d158ef5ef980d4a09/images-removebg-preview.png" alt="Instagram"><p class="insta">niki'sflexfit_official</p>
-               </li> <br>
-                <li>
-                  <img id="fera" src="https://raw.githubusercontent.com/Nikilitha26/e-commerceHostedImages/2585502dcff33cf447c51d1d158ef5ef980d4a09/sm_5b0125139fe89-removebg-preview.png" alt="Facebook"><p class="fera">niki'sflexfit_official</p>
-                </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <ul>
-                <h5 id="shop"> SHOP: </h5> <br>
-                <li><a href="./about.html">About</a></li><br><br>
-                <li><a href="./product.html">Products</a></li><br><br>
-                <li><a href="./admin.html">Admin</a></li><br><br>
-                <li><a href="./checkout.html">Checkout</a></li><br><br>
-                <li><a href="./contact.html">Contact Us</a></li><br><br>
-              </ul>
-            </div>
-            <div class="col-md-4">
-              <div class="payment-methods">
-                <h5>ACCEPTED PAYMENT METHODS:</h5><br><br>
-                <ul>
-                  <li><img id="visa" src="https://raw.githubusercontent.com/Nikilitha26/e-commerceHostedImages/05c2fbebbb1c8bf1eb0860ae8efa83381bac6ca5/Logo-VISA-transparent-PNG-removebg-preview.png" alt="Visa"></li>
-                  <li><img id="mastercard" src="https://raw.githubusercontent.com/Nikilitha26/e-commerceHostedImages/05c2fbebbb1c8bf1eb0860ae8efa83381bac6ca5/png-transparent-card-master-master-card-master-card-new-logo-method-new-logo-payment-logos-icon-thumbnail-removebg-preview.png" alt="Mastercard"></li>
-                  <li><img id="maestro" src="https://raw.githubusercontent.com/Nikilitha26/e-commerceHostedImages/05c2fbebbb1c8bf1eb0860ae8efa83381bac6ca5/Maestro-logo-removebg-preview.png" alt="Maestro"></li>
-                  <li><img id="applepay" src="https://raw.githubusercontent.com/Nikilitha26/e-commerceHostedImages/05c2fbebbb1c8bf1eb0860ae8efa83381bac6ca5/png-transparent-apple-pay-mobile-payment-apple-wallet-apple-text-service-rectangle-removebg-preview.png" alt="applepay"></li> <br><br>
-                  <li><img id="tymebank" src="https://raw.githubusercontent.com/Nikilitha26/e-commerceHostedImages/05c2fbebbb1c8bf1eb0860ae8efa83381bac6ca5/Screenshot_2024-06-29_225456-removebg-preview.png" alt="Tymebank"></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <p>Copyright &copy; Niki's Flex Fit <span id="current-year"></span> Company. All rights reserved.</p>
-        </div>
-      </footer>
+  <div class="footer">
+    <p>&copy; 2025 Niki’s Flex Fit. All rights reserved.</p>
+  </div>
 
+  <script>
+    const current = window.location.href;
+    document.querySelectorAll('.nav-link').forEach(link => {
+      if (link.href === current) {
+        link.classList.add('active');
+      }
+    });
 
-<script src="./script/index.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    document.querySelectorAll('.category-slideshow').forEach(slideshow => {
+    const slides = slideshow.querySelectorAll('.slide');
+    let index = 0;
+    setInterval(() => {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }, 3000);
+  });
+  </script>
+  
+
+    <script src="./script/index.js"></script>
+    <script src="./script/navbar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

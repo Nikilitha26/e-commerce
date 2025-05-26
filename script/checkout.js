@@ -92,9 +92,39 @@ function renderCheckoutTable() {
         window.location.href = './products.html'; 
     });
 
+    // document.getElementById('checkout-button1').addEventListener('click', function() {
+    //     window.location.href = './payments.html'; 
+    // });
+
     document.getElementById('checkout-button1').addEventListener('click', function() {
-        window.location.href = './payments.html'; 
+        const purchasedItems = JSON.parse(localStorage.getItem('purchasedItems')) || [];
+        const email = localStorage.getItem("email");
+        if (!email) {
+            alert("You must be logged in to checkout.");
+            return;
+        }
+    
+        const total = purchasedItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    
+        const newOrder = {
+            email: email,
+            date: new Date().toLocaleString(),
+            items: purchasedItems.map(item => item.name),
+            total: total
+        };
+    
+        const orders = JSON.parse(localStorage.getItem("orders")) || [];
+        orders.push(newOrder);
+        localStorage.setItem("orders", JSON.stringify(orders));
+    
+        // Clear the cart
+        localStorage.removeItem("purchasedItems");
+    
+        alert("Order placed successfully!");
+        window.location.href = "./orders.html";
     });
+    
+
   } else {
       checkoutContainer.innerHTML = 'Your cart is empty.';
   }

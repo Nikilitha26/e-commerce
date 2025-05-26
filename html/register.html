@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 40px; background: #f0f0f0; }
+    .register-box {
+      max-width: 320px; 
+      margin: auto; 
+      background: white; 
+      padding: 20px; 
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, select, button {
+      width: 100%; 
+      margin: 10px 0; 
+      padding: 10px; 
+      border: 1px solid #ccc; 
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    button {
+      background-color: #4CAF50; 
+      color: white; 
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    p.form-message {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+    p#regMessage {
+      color: red;
+      min-height: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="register-box">
+    <h2>Create Account</h2>
+    
+    <input type="text" id="regName" placeholder="First Name" />
+    <input type="text" id="regSurname" placeholder="Surname" />
+    <input type="number" id="regAge" placeholder="Age" min="1" max="120" />
+    
+    <select id="regGender">
+      <option value="" disabled selected>Gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+
+    <input type="email" id="regEmail" placeholder="Email Address" />
+    <input type="password" id="regPassword" placeholder="Choose a Password" />
+
+    <select id="regRole">
+      <option value="user" selected>User</option>
+      <option value="admin">Admin</option>
+    </select>
+
+    <button onclick="register()">Register</button>
+    <p id="regMessage"></p>
+  </div>
+
+  <p class="form-message">
+    Already have an account? <a href="./login.html">Login here</a>
+  </p>
+
+  <script src="../script/register.js"></script>
+</body>
+</html>

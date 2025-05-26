@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Profile</title>
+  <style>
+    body { font-family: Arial; padding: 40px; }
+    .profile-box { max-width: 400px; margin: auto; }
+    input, select, button { width: 100%; margin: 10px 0; padding: 10px; }
+    label { font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="profile-box">
+    <h2>Edit Profile</h2>
+    <label for="profileName">Name</label>
+    <input type="text" id="profileName" />
+
+    <label for="profileSurname">Surname</label>
+    <input type="text" id="profileSurname" />
+
+    <label for="profileAge">Age</label>
+    <input type="number" id="profileAge" />
+
+    <label for="profileGender">Gender</label>
+    <select id="profileGender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label for="profileEmail">Email</label>
+    <input type="email" id="profileEmail" disabled />
+
+    <button onclick="saveProfile()">Save Changes</button>
+    <p id="profileMessage"></p>
+  </div>
+
+  <script src="../script/userdetails.js"></script>
+</body>
+</html>
