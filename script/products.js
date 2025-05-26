@@ -21,7 +21,7 @@ let item11 = new CreateItem(11, 'Black and Pink Waist Trainer ', 'Gym Essentials
 
 let item12 = new CreateItem(12, 'Purple Wrist Watch', 'Gym Essentials','https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/Screenshot%202024-06-11%20082123.png?raw=true', '5.11cm Square Screen With phone features, 100+ Sports Modes, Fitness Tracker, Outdoor Smartwatch.', 1, 600.00  )
 
-let item13 = new CreateItem(13, 'Black Gym Wrist Watch ', 'Gym Essentials','https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/Screenshot%202024-06-11%20082323.png?raw=true', '5.11cm Square Screen With phone features, 100+ Sports Modes, Fitness Tracker, Outdoor Smartwatch.', 1, 600.00  )
+let item13 = new CreateItem(13, 'Black Wrist Watch ', 'Gym Essentials','https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/Screenshot%202024-06-11%20082323.png?raw=true', '5.11cm Square Screen With phone features, 100+ Sports Modes, Fitness Tracker, Outdoor Smartwatch.', 1, 600.00  )
 
 let item14= new CreateItem(14, 'Pink waterproof sport bag', 'Gym Bags','https://github.com/Nikilitha26/hostedImagesEndOfModule/blob/main/Screenshot%202024-06-05%20134611.png?raw=true', 'The best carry bag for gym, everything fits. It is also a waterrproof bag, meaning it is much safer.', 1, 400.00  )
 

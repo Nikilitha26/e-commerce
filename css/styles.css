@@ -1,3 +1,112 @@
+/* nav */
+.navbar-nav .nav-link {
+  position: relative;
+  color: inherit; /* default color */
+  transition: color 0.3s ease;
+  font-family: "Playfair Display", serif;
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: var(--gold);
+  transition: width 0.3s ease;
+  font-family: "Playfair Display", serif;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--gold);
+  font-family: "Playfair Display", serif;
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 50%;
+  font-family: "Playfair Display", serif;
+}
+
+/* Ensure the icon itself can be targeted */
+.navbar .nav-link:hover .profile-icon {
+  color: var(--gold);
+  transition: color 0.3s ease;
+  font-family: "Playfair Display", serif;
+}
+
+
+    a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      font-family: "Playfair Display", serif;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+      z-index: 1000; 
+      font-family: "Playfair Display", serif;
+    }
+
+    .header a {
+      margin: 0 20px;
+      font-size: 16px;
+      transition: color 0.3s ease;
+      font-family: "Playfair Display", serif;
+    }
+
+    /* .header a.active {
+        color: var(--gold);
+        border-bottom: 2px solid var(--gold);
+        padding-bottom: 2px;
+        margin-bottom: 13px;
+    } */
+
+    .navbar-links a.active,
+    .header a.active {
+      position: relative;
+      color: var(--gold);
+      margin-bottom: 10px;
+      font-size: 20;
+      font-weight: bolder;
+      font-family: "Playfair Display", serif;
+    }
+
+    .navbar-links a.active::after,
+    .header a.active::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -2px;
+      transform: translateX(-50%);
+      width: 50%; 
+      height: 2px;
+      background-color: var(--gold);
+      border-radius: 2px;
+      margin-bottom: -5px;
+      font-family: "Playfair Display", serif;
+    }
+
+    .header a:hover {
+      color: var(--gold);
+      font-family: "Playfair Display", serif;
+    }
+
+    .fa-user{
+      position: relative;
+      left: 300px;
+      font-family: "Playfair Display", serif;
+    }
+
 body {
     height: 100%;
     width: 100%;
@@ -30,6 +139,20 @@ body {
     color: #D4AF37;
   }
   
+/* footer */
+    /* footer */
+    .footer {
+      background-color: white;
+      padding: 30px 20px;
+      text-align: center;
+      border-top: 1px solid #eee;
+    }
+
+    .footer p {
+      color: #999;
+      font-size: 14px;
+    }
+
 footer {
     position: relative; 
     bottom: 0;
@@ -293,78 +416,233 @@ footer {
 
   
   /* About */
+  :root {
+    --gold: #d4a373;
+    --gold-dark: #b97b56;
+    --blush: #f7e9e3;
+    --text-dark: #222;
+    --text-soft: #555;
+    --bg-light: #f4f1ee;
+  }
   
+  body {
+    font-family: "Playfair Display", serif;
+    background-color: var(--bg-light);
+    color: var(--text-soft);
+    /* margin-top: 80px; */
+  }
   
-  #about {
-    background-color: black;
-    color: #D4AF37;
-    padding: 20px;
-    max-width: 900px;
-    line-height: 1.5;
-    font-size: larger;
+  .hero {
+    background-color: var(--blush);
+    padding: 80px 0;
+    color: var(--text-dark);
+    margin-top: 80px;
+    font-family: "Playfair Display", serif;
+  }
+  
+  .hero h1 {
+    color: var(--gold-dark);
+    font-weight: bold;
+    font-family: "Playfair Display", serif;
+  }
+  
+  .about-section h2{
+    color: var(--gold-dark);
+    font-family: "Playfair Display", serif;
+    font-size: 45px;
     text-align: center;
-    margin-left: 300px;
-    position: relative;
-    bottom: 20px;
+  }
+  .mission-section h2{
+    color: var(--gold-dark);
+    font-family: "Playfair Display", serif;
+    font-size: 45px;
+  }
+  .team-section h2 {
+    color: var(--gold-dark);
+    font-family: "Playfair Display", serif;
+    font-size: 45px;
   }
   
-  #about-us {
-    color: #D4AF37;
-    position: relative;
-    left: 120px;
-    bottom: 90px;
+  .about-section p{
+    font-size: 1rem;
+    color: var(--text-soft);
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .mission-section p{
+    font-size: 1rem;
+    color: var(--text-soft);
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+    /* text-align: justify; */
+  }
+  .team-section p {
+    font-size: 1rem;
+    color: var(--text-soft);
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+    text-align: justify;
   }
   
-  .cards {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+  .mission-section {
+    background-color: var(--blush);
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .text-muted{
+    text-align: center !important;
+  }
+
+  .niki{
+    font-family: "Playfair Display", serif;
+    font-size: 22px;
+  }
+
+  .shadow{
+    width: 300px; 
+    height: 200px;
+    object-fit: cover;
+    text-align: center;
   }
   
-  #pic{
-    width: 900px;
-    height: 400px;
-    position: relative;
-    left: 250px;
-    bottom: 60px;
+  footer {
+    font-size: 0.9rem;
+    font-family: "Playfair Display", serif;
   }
-  
-  /* Base styles */
-#logo {
-    max-width: 100%;
+
+  /* Tablet */
+@media (max-width: 991.98px) {
+  .container,
+  .hero,
+  .about-section,
+  .mission-section,
+  .team-section {
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 100% !important;
+    width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .about-section .row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-section img {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
     height: auto;
+  }
+
+  .team-section .row {
+    flex-direction: column;
+  }
+  .niks {
+    margin-left: 250px;
+  }
+
+  .team-section img {
+    width: 150px;
+    height: 150px;
+  }
 }
 
-/* Responsive styles for header image */
-@media (max-width: 768px) {
-    #logo {
-        width: 200px; /
-    }
+@media (max-width: 767.98px) {
+  .hero {
+    padding: 60px 20px;
+  }
+
+  .about-section,
+  .mission-section,
+  .team-section {
+    padding: 30px 15px;
+  }
+
+  .about-section h2,
+  .mission-section h2,
+  .team-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .about-section p,
+  .mission-section p,
+  .team-section p {
+    font-size: 0.95rem;
+  }
+
+  footer {
+    font-size: 0.85rem;
+    padding: 15px;
+  }
 }
 
-/* Responsive styles for navigation */
-@media (max-width: 768px) {
-    #nav {
-        flex-direction: column;
-        align-items: start;
-    }
+/* Small phones and extra small devices */
+@media (max-width: 575.98px) {
+  .hero {
+    padding: 50px 10px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .about-section,
+  .mission-section,
+  .team-section {
+    padding: 20px 10px;
+  }
+
+  .about-section h2,
+  .mission-section h2,
+  .team-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-section p,
+  .mission-section p,
+  .team-section p {
+    font-size: 0.9rem;
+  }
+
+  .team-section img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .niks{
+    margin-left: 0px !important;
+  }
+
+  footer {
+    font-size: 0.8rem;
+    padding: 10px;
+    text-align: center;
+  }
 }
 
-/* Responsive styles for the title image */
-@media (max-width: 768px) {
-    #title1 {
-        width: 100%;
-        height: auto;
-    }
-}
-
-/* Responsive styles for the about image */
-@media (max-width: 768px) {
-    #pic {
-        width: 100%;
-        height: auto;
-    }
-}
 
   /* Products */
   

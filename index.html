@@ -517,9 +517,12 @@
     </div>
   </div>
 
-  <div class="footer">
-    <p>&copy; 2025 Niki’s Flex Fit. All rights reserved.</p>
-  </div>
+  
+  <footer class="text-center py-4" style="background-color: var(--blush); color: var(--text-dark);">
+    <div class="container">
+      &copy; <span id="currentYear"></span> Niki's Flex Fit. All rights reserved.
+    </div>
+  </footer>
 
   <script>
     const current = window.location.href;
@@ -538,6 +541,9 @@
       slides[index].classList.add('active');
     }, 3000);
   });
+
+  document.getElementById("currentYear").textContent = new Date().getFullYear();
+
   </script>
   
 
