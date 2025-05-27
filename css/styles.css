@@ -77,7 +77,7 @@
       color: var(--gold);
       margin-bottom: 10px;
       font-size: 20;
-      font-weight: bolder;
+      font-weight: 900;
       font-family: "Playfair Display", serif;
     }
 
@@ -90,6 +90,7 @@
       transform: translateX(-50%);
       width: 50%; 
       height: 2px;
+      font-weight: 900;
       background-color: var(--gold);
       border-radius: 2px;
       margin-bottom: -5px;
@@ -424,6 +425,10 @@ footer {
     --text-soft: #555;
     --bg-light: #f4f1ee;
   }
+
+      .navbar {
+      border-bottom: 2px solid var(--gold);
+    }
   
   body {
     font-family: "Playfair Display", serif;
@@ -445,6 +450,10 @@ footer {
     font-weight: bold;
     font-family: "Playfair Display", serif;
   }
+      .nav-link.active, .nav-link:hover {
+      color: var(--gold);
+      font-weight: 900;
+    }
   
   .about-section h2{
     color: var(--gold-dark);
@@ -646,7 +655,7 @@ footer {
 
   /* Products */
   
-  #H3{
+  /* #H3{
   color: #D4AF37;
   text-decoration: underline;
   position: relative;
@@ -825,7 +834,7 @@ footer {
 
 .item-container {
     flex: 0 1 calc(33.333% - 16px); 
-}
+} */
 
 
 
