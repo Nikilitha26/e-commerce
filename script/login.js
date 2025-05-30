@@ -20,7 +20,10 @@ function login() {
 
   // Check email and password match
   if (email.toLowerCase() === storedUser.email.toLowerCase() && password === storedUser.password) {
+    // After successful login
+    localStorage.setItem('userLoggedIn', 'true');
     // Successful login
+    localStorage.setItem("currentUser", JSON.stringify(storedUser));
     localStorage.setItem("isLoggedIn", "true");
     localStorage.setItem("email", storedUser.email);
     localStorage.setItem("Name", storedUser.Name);
@@ -35,6 +38,7 @@ function login() {
   } else {
     messageEl.textContent = "Invalid email or password.";
   }
+  
 }
 
 

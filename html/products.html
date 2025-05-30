@@ -8,7 +8,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Satisfy&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
   <style>
     :root {
       --gold: #d4a373;
@@ -22,7 +21,7 @@
     body {
       background-color: var(--bg-light);
       color: var(--text-dark);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: "Playfair Display", serif;
       padding-top: 80px;
     }
 
@@ -50,6 +49,22 @@
       font-size: 1.5rem;
       color: var(--text-dark);
     }
+
+    .cart-count-badge {
+    background-color: #d4a373;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    position: relative;
+    top: -10px;
+    left: -5px;
+  }
+
+.cart-count-badge.bump {
+  transform: scale(1.2);
+}
+
 
     /* Section Header */
     #H3 {
@@ -85,19 +100,19 @@
       color: white;
     }
     .btn-gold {
-  background-color: var(--gold);
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
-  font-weight: 600;
-}
+      background-color: var(--gold);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      font-weight: 600;
+    }
 
-.btn-gold:hover {
-  background-color: var(--gold-dark);
-  color: white;
-}
+    .btn-gold:hover {
+      background-color: var(--gold-dark);
+      color: white;
+    }
 
     /* Product Grid */
     #items-list {
@@ -109,8 +124,8 @@
 
 
     .item-container {
-      max-width: 300px;
-      margin: 0 auto;
+      width: 80%;
+      margin: 0;
       padding: 1rem;
       background-color: white;
       border-radius: 12px;
@@ -161,22 +176,13 @@
       background-color: var(--gold-dark);
     }
 
-    /* Modal */
-    .modal-content {
-      border-radius: 12px;
-    }
-
-    .modal-header {
-      background-color: var(--gold);
-      color: white;
-    }
-
     /* Footer */
     footer {
       background-color: white;
       border-top: 3px solid var(--gold);
       padding: 2rem 1rem;
-      margin-top: 4rem;
+      /* margin-top: 4rem; */
+      margin-top: 200px; /* Pushes footer to the bottom */
     }
 
     footer p {
@@ -184,6 +190,26 @@
       margin: 0;
       color: var(--text-soft);
     }
+
+/* On small screens */
+    @media (max-width: 767px) {
+    #items-list {
+      grid-template-columns: 1fr; 
+      padding: 1rem;
+    }
+
+  .item-container {
+    max-width: 100%;
+  }
+}
+
+/* On tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+  #items-list {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
   </style>
 </head>
 
@@ -218,12 +244,12 @@
             </li>
             <li class="nav-item" id="adminNavItem">
               <a class="nav-link" href="./admin.html">Admin</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./checkout.html">
-                <i class="fas fa-shopping-cart"></i>
-              </a>
-            </li>
+              <li class="nav-item">
+                <a href="./checkout.html" class="nav-link">
+                  <i class="fas fa-shopping-cart"></i>
+                  <span id="cart-count" class="cart-count-badge">0</span>
+                </a>
+              </li>
             <li class="nav-item">
               <a class="nav-link" href="./contact.html">Contacts</a>
             </li>
@@ -255,7 +281,7 @@
     <div class="search-sort-bar mb-4">
       <form class="d-flex mb-2 mb-md-0" role="search">
         <input id="search-input" class="form-control me-2" type="search" placeholder="Search" />
-        <button class="btn btn-gold" type="submit">Search</button>
+        <!-- <button class="btn btn-gold" type="submit">Search</button> -->
 
       </form>
       <div>
@@ -274,20 +300,10 @@
     </div>
   </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="productModalLabel">Product Details</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body" id="productModalBody">
-          <!-- Filled by JS -->
-        </div>
-      </div>
-    </div>
+  <div id="no-results-message" style="display:none; text-align:center; padding: 20px; font-weight: bold; color: #b97b56;">
+    Sorry, no items match your search.
   </div>
+  
 
   <!-- Footer -->
   <footer>
@@ -295,10 +311,32 @@
   </footer>
 
   <!-- Scripts -->
+   <!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
     document.getElementById("current-year").textContent = new Date().getFullYear();
+
+    function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let totalCount = 0;
+  cart.forEach(item => {
+    totalCount += item.quantity;
+  });
+
+  const cartCountElement = document.getElementById('cart-count');
+  if (cartCountElement) {
+    cartCountElement.textContent = totalCount;
+  }
+}
+
+// Run it on page load
+document.addEventListener('DOMContentLoaded', updateCartCount);
+
   </script>
   <script src="../script/products.js"></script>
+  <script src="../script/checkout.js"></script>
+  <script src="../script/navbar.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

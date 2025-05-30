@@ -140,7 +140,18 @@
       position: relative;
       left: 300px;
     }
+    .cart-count-badge {
+    background-color: #d4a373;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    position: relative;
+    top: -10px;
+    left: -5px;
+  }
 
+    /* banner */
     .banner {
       position: relative;
       background-image: url('https://nikilitha26.github.io/e-commerceHostedImages/bannerr.jpg'); 
@@ -417,8 +428,9 @@
               <a class="nav-link" href="./html/admin.html">Admin</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./html/checkout.html">
+              <a href="./html/checkout.html" class="nav-link active">
                 <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count" class="cart-count-badge">0</span>
               </a>
             </li>
             <li class="nav-item">
@@ -545,7 +557,21 @@
     }, 3000);
   });
 
-  document.getElementById("currentYear").textContent = new Date().getFullYear();
+  
+  function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let totalCount = 0;
+  cart.forEach(item => {
+    totalCount += item.quantity;
+  });
+
+  const cartCountElement = document.getElementById('cart-count');
+  if (cartCountElement) {
+    cartCountElement.textContent = totalCount;
+  }
+}
+
+  // document.getElementById("currentYear").textContent = new Date().getFullYear();
 
   </script>
   

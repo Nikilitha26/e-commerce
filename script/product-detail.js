@@ -1,6 +1,3 @@
-document.getElementById("currentYear").textContent = new Date().getFullYear();
-
-
 // nav
 const current = window.location.href;
 document.querySelectorAll('.nav-link').forEach(link => {
@@ -21,7 +18,6 @@ document.querySelectorAll('.category-slideshow').forEach(slideshow => {
   }, 3000); // Change image every 3 seconds
 });
 
-
 function updateCartCount() {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   let totalCount = 0;
@@ -34,11 +30,3 @@ function updateCartCount() {
     cartCountElement.textContent = totalCount;
   }
 }
-
-// === Update cart badge ===
-// function updateCartCount() {
-//   const cart = JSON.parse(localStorage.getItem('cart')) || [];
-//   const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-//   const badge = document.getElementById('cart-count');
-//   if (badge) badge.textContent = count;
-// }

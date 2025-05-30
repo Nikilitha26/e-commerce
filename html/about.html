@@ -49,8 +49,9 @@
               <a class="nav-link" href="./admin.html">Admin</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./checkout.html">
+              <a href="./checkout.html" class="nav-link active">
                 <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count" class="cart-count-badge">0</span>
               </a>
             </li>
             <li class="nav-item">
@@ -133,6 +134,8 @@
     </div>
   </footer>
 
+  <script src="../script/about.js"></script>
+  <script src="../script/navbar.js"></script>
   <script>
     document.getElementById("currentYear").textContent = new Date().getFullYear();
   </script>
@@ -141,7 +144,30 @@
 
 <script>
   console.log(typeof bootstrap); // Should NOT log "undefined"
-</script>
+
+  const yearEl = document.getElementById("current-year") || document.getElementById("currentYear");
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
+}
+
+
+    function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let totalCount = 0;
+  cart.forEach(item => {
+    totalCount += item.quantity;
+  });
+
+  const cartCountElement = document.getElementById('cart-count');
+  if (cartCountElement) {
+    cartCountElement.textContent = totalCount;
+  }
+}
+
+// Run it on page load
+document.addEventListener('DOMContentLoaded', updateCartCount);
+
+  </script>
 
 </body>
 </html>

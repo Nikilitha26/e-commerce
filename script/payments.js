@@ -28,7 +28,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
 function renderCartItems() {
-    let purchasedItems = JSON.parse(localStorage.getItem('purchasedItems')) || [];
+    let pendingOrder = JSON.parse(localStorage.getItem('pendingOrder'));
+    let purchasedItems = pendingOrder?.items || [];
     let cartHTML = '';
     let subtotal = 0;
 
@@ -37,24 +38,24 @@ function renderCartItems() {
         subtotal += itemTotal;
         cartHTML += `
             <div class="cart-item">
-                <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                <img src="${item.image[0]}" alt="${item.name}" class="cart-item-image">
                 <p>${item.name} x ${item.quantity} <span class="price">R ${itemTotal.toFixed(2)}</span></p>
             </div>
         `;
     });
 
-    // Update the cart's HTML
     const cartContainer = document.querySelector('.container .cart');
     if (cartContainer) {
         cartContainer.innerHTML = cartHTML;
     }
 
-    // Update subtotal
     const subtotalElement = document.querySelector('.container .subtotal span');
     if (subtotalElement) {
         subtotalElement.textContent = 'R ' + subtotal.toFixed(2);
     }
 }
+
+
 document.addEventListener('DOMContentLoaded', (event) => {
     const placeOrderButton = document.querySelector('.place-order-button'); 
     placeOrderButton.addEventListener('mousedown', () => {

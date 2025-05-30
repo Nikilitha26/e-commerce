@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <p><strong>Order #${index + 1}</strong></p>
         <p><strong>Date:</strong> ${order.date}</p>
         <p><strong>Items:</strong> ${order.items.join(", ")}</p>
-        <p><strong>Total:</strong> $${order.total.toFixed(2)}</p>
+        <p><strong>Total:</strong> R${order.total.toFixed(2)}</p>
       `;
       ordersList.appendChild(orderEl);
     });
