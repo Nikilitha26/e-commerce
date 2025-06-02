@@ -159,7 +159,7 @@ body {
 /* footer */
     /* footer */
     .footer {
-      background-color: white;
+      background-color: white ;
       /* padding: 30px 20px; */
       text-align: center;
       border-top: 1px solid #eee;
@@ -472,7 +472,7 @@ footer {
     background-color: var(--blush);
     padding: 80px 0;
     color: var(--text-dark);
-    margin-top: 80px;
+    margin-top: 0px;
     font-family: "Playfair Display", serif;
   }
   
