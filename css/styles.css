@@ -160,7 +160,7 @@ body {
     /* footer */
     .footer {
       background-color: white;
-      padding: 30px 20px;
+      /* padding: 30px 20px; */
       text-align: center;
       border-top: 1px solid #eee;
     }
@@ -173,6 +173,7 @@ body {
 footer {
     position: relative; 
     bottom: 0;
+    /* top: 30px; */
     width: 100%;
     height: auto; 
     background-color: #D4AF37; 
@@ -180,7 +181,10 @@ footer {
     padding: 20px;
     text-align: center;
   }
-  
+  footer.text-center.py-4 {
+    margin: 0;
+    padding-bottom: 0;
+}
   footer ul {
     list-style: none; 
     margin: 0;

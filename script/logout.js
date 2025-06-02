@@ -1,8 +1,11 @@
 // Clear login state and redirect to login page
+localStorage.removeItem('currentUser');
+localStorage.removeItem('email');
+localStorage.removeItem('isLoggedIn');
+localStorage.removeItem('Name');
+localStorage.removeItem('role');
 localStorage.removeItem('userLoggedIn');
-localStorage.removeItem("isLoggedIn");
-localStorage.removeItem("email");
-localStorage.removeItem("role");
+
 
 setTimeout(() => {
   window.location.href = "login.html";
