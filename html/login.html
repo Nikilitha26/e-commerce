@@ -5,46 +5,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Login</title>
   <style>
-    body { 
-      font-family: Arial, sans-serif;
-      padding: 40px; 
-      background: #f0f0f0;
+    :root {
+      --gold: #d4a373;
+      --gold-dark: #b97b56;
+      --blush: #f7e9e3;
+      --text-dark: #222;
+      --text-soft: #555;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--blush);
+      color: var(--text-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
     }
 
     .login-box {
-      max-width: 320px; 
-      margin: auto; 
-      background: white;
-      padding: 20px; 
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-     
-    input, button { 
+      max-width: 340px;
       width: 100%;
-      margin: 10px 0; 
-      padding: 10px;
-      border: 1px solid #ccc; 
-      border-radius: 4px;
+      background: white;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      border-top: 4px solid var(--gold);
+    }
+
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: var(--gold-dark);
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
       font-size: 16px;
       box-sizing: border-box;
     }
+
     button {
-      background-color: #4CAF50; 
-      color: white; 
+      background-color: var(--gold);
+      color: white;
       border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 16px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
+
     button:hover {
-      background-color: #45a049;
+      background-color: var(--gold-dark);
     }
+
     p.form-message {
       text-align: center;
       margin-top: 15px;
       font-size: 14px;
+      color: var(--text-soft);
     }
+
+    p.form-message a {
+      color: var(--gold-dark);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    p.form-message a:hover {
+      text-decoration: underline;
+    }
+
     p#message {
+      color: red;
       min-height: 18px;
+      text-align: center;
+      margin-top: 8px;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -54,7 +99,7 @@
     <input type="email" id="email" placeholder="Email Address" />
     <input type="password" id="password" placeholder="Password" />
     <button onclick="login()">Login</button>
-    <p id="message" style="color:red;"></p>
+    <p id="message"></p>
   </div>
 
   <p class="form-message">

@@ -151,6 +151,7 @@ function renderCheckoutTable() {
         date: new Date().toLocaleString(),
         items: purchasedItems,
         total: total
+        
       };
 
       localStorage.setItem("pendingOrder", JSON.stringify(pendingOrder));

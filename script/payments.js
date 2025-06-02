@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             return; // Stop the form submission if any field is empty
         }
 
+        
         // If all inputs are filled, redirect to thank you page
         window.location.href = './thankyou.html';
     });

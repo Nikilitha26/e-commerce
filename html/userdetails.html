@@ -5,15 +5,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>User Profile</title>
   <style>
-    body { font-family: Arial; padding: 40px; }
-    .profile-box { max-width: 400px; margin: auto; }
-    input, select, button { width: 100%; margin: 10px 0; padding: 10px; }
-    label { font-weight: bold; }
+    :root {
+      --gold: #d4a373;
+      --gold-dark: #b97b56;
+      --blush: #f7e9e3;
+      --text-dark: #222;
+      --text-soft: #555;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--blush);
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .profile-box {
+      max-width: 400px;
+      width: 100%;
+      background: white;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      border-top: 4px solid var(--gold);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: var(--gold-dark);
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+      color: var(--text-dark);
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    input:disabled {
+      background-color: #f1f1f1;
+      color: var(--text-soft);
+    }
+
+    button {
+      background-color: var(--gold);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: var(--gold-dark);
+    }
+
+    #profileMessage {
+      text-align: center;
+      color: red;
+      margin-top: 10px;
+      min-height: 18px;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
+
   <div class="profile-box">
     <h2>Edit Profile</h2>
+
     <label for="profileName">Name</label>
     <input type="text" id="profileName" />
 

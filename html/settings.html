@@ -5,36 +5,106 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Settings</title>
   <style>
-    body {
-      font-family: Arial;
-      padding: 40px;
-      background-color: #f9f9f9;
+    :root {
+      --gold: #d4a373;
+      --gold-dark: #b97b56;
+      --blush: #f7e9e3;
+      --text-dark: #222;
+      --text-soft: #555;
+      --danger: #dc3545;
     }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--blush);
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
     .settings-box {
       max-width: 400px;
-      margin: auto;
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    input, button {
       width: 100%;
-      margin: 10px 0;
-      padding: 10px;
+      background: white;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      border-top: 4px solid var(--gold);
     }
+
     h2 {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      color: var(--gold-dark);
     }
-    .delete-btn {
-      background-color: #dc3545;
-      color: white;
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: var(--text-dark);
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 18px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
       border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:not(.delete-btn) {
+      background-color: var(--gold);
+      color: white;
+    }
+
+    button:not(.delete-btn):hover {
+      background-color: var(--gold-dark);
+    }
+
+    .delete-btn {
+      background-color: var(--danger);
+      color: white;
+    }
+
+    .delete-btn:hover {
+      background-color: #c82333;
+    }
+
+    hr {
+      margin: 25px 0;
+      border: none;
+      border-top: 1px solid #eee;
+    }
+
+    #settingsMessage {
+      text-align: center;
+      margin-top: 15px;
+      color: red;
+      font-size: 14px;
+      min-height: 18px;
     }
   </style>
 </head>
 <body>
+
   <div class="settings-box">
     <h2>Account Settings</h2>
 
