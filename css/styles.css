@@ -878,18 +878,18 @@ footer {
     margin-bottom: 60px;
   }
   #btnd{
-    position: relative;
+    /* position: relative;
     top: -10px;
     left: 5px;
-    margin-top: 30px;
+    margin-top: 30px; */
     padding: 4px;
-    background-color: #D4AF37 !important;
+    background-color: #d4a373 !important;
     color: white !important;
     border: none !important;
   }
   #btnd:hover{
-  background-color: #ffffff !important;
-  color: #D4AF37 !important;
+  background-color: #b97b56 !important;
+  color: white !important;
   }
   .table-bordered{
     position: relative;
@@ -906,52 +906,52 @@ footer {
     color: #D4AF37;
   }
   #closse{
-    background-color: #D4AF37 !important;
+    background-color: #d4a373!important;
     color: #ffffff !important;
   }
   #closse:hover{
-    background-color: #ffffff !important;
-    color: #D4AF37 !important;
+    background-color: #b97b56 !important;
+    color: white !important;
   }
 #addProductButton{
-  background-color: #D4AF37;
+  background-color: #d4a373;
     color: #ffffff;
     position: relative;
     top: 0px;
 }
 #addProductButton:hover{
-  background-color: #ffffff;
-  color: #D4AF37;
+  background-color: #b97b56;
+  color: white;
 }
 #clearInputsButton{
-  background-color: #D4AF37;
+  background-color: #d4a373;
   color: #ffffff;
 }
 #clearInputsButton:hover{
-  background-color: #ffffff;
-  color: #D4AF37;
+  background-color: #b97b56;
+  color: white;
 }
 .edit-btn{
-  background-color: #D4AF37;
+  background-color: #d4a373;
   color: white;
   border: none;
   border-radius: 4px;
   margin-top: 3px;
 }
 .edit-btn:hover{
-  background-color: white;
-  color: #D4AF37;
+  background-color: #b97b56;
+  color: white;
 }
 .remove-btn{
-  background-color: #D4AF37;
+  background-color: #d4a373;
   color: white;
   border: none;
   border-radius: 4px;
   margin-top: 5px;
 }
 .remove-btn:hover{
-  background-color: white;
-  color: #D4AF37;
+  background-color: #b97b56;
+  color: white;
 }
 .iimage{
   width: 100px;
@@ -1185,7 +1185,7 @@ label {
 }
 
 .btn8 {
-  background-color: #D4AF37;
+  background-color: #d4a373;
   color: white;
   padding: 12px;
   border: none;
@@ -1208,7 +1208,7 @@ label {
 }
 .btn8:hover {
   background-color: #ffffff;
-  color: #D4AF37;
+  color: #b97b56;
 }
 
 span.price {

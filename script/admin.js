@@ -1,10 +1,16 @@
 
+
+
+// footer
+// document.getElementById("currentYear").textContent = new Date().getFullYear();
+// const current = window.location.href;
+
 // Function to add a new item
 function addItem() {
     const image = document.getElementById('image').value;
     const name = document.getElementById('username').value;
     const description = document.getElementById('description').value;
-    const price = document.getElementById('price').value;
+    const price = parseFloat(document.getElementById('price').value);
   
     const newItem = { image, name, description, price };
   
@@ -56,7 +62,7 @@ function updateItemsTable() {
     items.forEach((item, index) => {
         const row = tableBody.insertRow();
         row.innerHTML = `
-            <td><img class="iimage" src="${item.image}" alt="${item.name}" width="50" height="50"></td>
+            <img class="item-image" src="${Array.isArray(item.image) ? item.image[0] : item.image}" alt="${item.name}">
             <td>${item.name}</td>
             <td>${item.description}</td>
             <td class="pprice">R ${item.price}</td>
@@ -120,35 +126,35 @@ function editItem(index) {
 
 // Function to save changes after editing an item
 function saveChanges(index) {
-    const items = JSON.parse(localStorage.getItem('items')) || [];
-    
-    // Update the item with new values from the form inputs
-    items[index].image = document.getElementById('image').value;
-    items[index].name = document.getElementById('username').value;
-    items[index].description = document.getElementById('description').value;
-    items[index].price = document.getElementById('price').value;
+  const items = JSON.parse(localStorage.getItem('items')) || [];
 
-    // Save the updated items array back to local storage
-    localStorage.setItem('items', JSON.stringify(items));
+  const newImage = document.getElementById('image').value;
+  if (newImage.trim() !== '') {
+    items[index].image = newImage;
+  }
 
-    // Reset the add button text and event listener to add new items
-    const addButton = document.getElementById('addProductButton');
-    addButton.textContent = 'Add item';
-    
-    // Remove existing event listeners from the add button
-    addButton.replaceWith(addButton.cloneNode(true));
-     
-    // Add new event listener to add new items
-    document.getElementById('addProductButton').addEventListener('click', addItem);
+  items[index].name = document.getElementById('username').value;
+  items[index].description = document.getElementById('description').value;
+  items[index].price = document.getElementById('price').value;
 
-    const editModal = bootstrap.Modal.getInstance(document.getElementById('staticBackdrop'));
-    editModal.hide();
-    
-    updateItemsTable();
+  localStorage.setItem('items', JSON.stringify(items));
 
-    // Call displayProducts to update the products table
-    displayProducts();
+  // Reset button
+  const oldAddButton = document.getElementById('addProductButton');
+  const newAddButton = oldAddButton.cloneNode(true);
+  newAddButton.textContent = 'Add item';
+  newAddButton.id = 'addProductButton';
+  oldAddButton.replaceWith(newAddButton);
+
+  newAddButton.addEventListener('click', addItem);
+
+  const editModal = bootstrap.Modal.getInstance(document.getElementById('staticBackdrop'));
+  editModal.hide();
+
+  updateItemsTable();
+  displayProducts();
 }
+
 
 // Function to remove an item
 function removeItem(index) {
@@ -159,7 +165,7 @@ function removeItem(index) {
 }
 
 // Event listener for adding a new product
-// document.getElementById('addProductButton').addEventListener('click', addItem);
+document.getElementById('addProductButton').addEventListener('click', addItem);
 
 // Event listener for clearing input fields in the form
 document.getElementById('clearInputsButton').addEventListener('click', () => {
@@ -184,32 +190,36 @@ updateItemsTable();
 
 
 // get products from local storage
-let products = JSON.parse(localStorage.getItem('items')) || []
+// let products = JSON.parse(localStorage.getItem('items')) || []
 
-// display products in table
 function displayProducts() {
-  const tbody = document.getElementById('products-tbody')
-  tbody.innerHTML = ''
+  const tbody = document.getElementById('products-tbody');
+  tbody.innerHTML = '';
+
+  //Refresh data from localStorage
+  const products = JSON.parse(localStorage.getItem('items')) || [];
+
   products.forEach((product, index) => {
-      const row = document.createElement('tr')
-      row.innerHTML = `
-          <td>${index + 1}</td>
-          <td>${product.name}</td>
-          <td>${product.price}</td>
-          <td>${product.description}</td>
-          <td>
-              <button class="btn btn-primary" id="edit-btn-${index}">Edit</button>
-              <button class="btn btn-danger" id="remove-btn-${index}">Remove</button>
-          </td>
-      `
-      tbody.appendChild(row)
-  })
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${index + 1}</td>
+      <td>${product.name}</td>
+      <td>${product.price}</td>
+      <td>${product.description}</td>
+      <td>
+        <button class="btn btn-primary" id="edit-btn-${index}">Edit</button>
+        <button class="btn btn-danger" id="remove-btn-${index}">Remove</button>
+      </td>
+    `;
+    tbody.appendChild(row);
+  });
 }
 
+
 // add product
-document.getElementById('add-product-btn').addEventListener('click', () => {
-  document.getElementById('add-product-form').style.display = 'block'
-})
+// document.getElementById('add-product-btn').addEventListener('click', () => {
+//   document.getElementById('add-product-form').style.display = 'block'
+// })
 
 document.getElementById('save-product-btn').addEventListener('click', () => {
   const name = document.getElementById('name').value
@@ -261,3 +271,4 @@ localStorage.getItem('items', () => {
 
 // const currentYear = document.getElementById('current-year');
 // currentYear.textContent = new Date().getFullYear();
+// });

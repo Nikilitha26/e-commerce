@@ -118,6 +118,13 @@ function CreateItem(id, name, category, image, description, quantity, price) {
     // Render all items on page
     function renderItems(itemArray) {
       const noResultsMessage = document.getElementById("no-results-message");
+      const itemsList = document.getElementById('items-list');  // <--- add this line here
+    
+      if (!itemsList) {
+        console.error("Element with id 'items-list' not found.");
+        return;  // stop execution if no container found
+      }
+    
       itemsList.innerHTML = '';
     
       if (itemArray.length === 0) {
@@ -134,7 +141,7 @@ function CreateItem(id, name, category, image, description, quantity, price) {
           <img class="item-image" src="${Array.isArray(item.image) ? item.image[0] : item.image}" alt="${item.name}">
           <div class="item-details">
             <h3>${item.name}</h3>
-            <p><strong>Price:</strong> R${item.price.toFixed(2)}</p>
+            <p><strong>Price:</strong> R${Number(item.price).toFixed(2)}</p>
             <button class="btn btn-gold" data-action="add" id="${item.id}" title="Add to Cart">
               <i class="fas fa-cart-plus"></i>
             </button>
@@ -209,29 +216,45 @@ function CreateItem(id, name, category, image, description, quantity, price) {
     
   
     // Filter items by search input
-    searchInput.addEventListener('keyup', () => {
-      const term = searchInput.value.toLowerCase();
-      const filtered = items.filter(item =>
-        item.name.toLowerCase().includes(term) ||
-        item.description.toLowerCase().includes(term) ||
-        item.category.toLowerCase().includes(term)
-      );
-      renderItems(filtered);
-    });
+    // const searchInput = document.getElementById('searchInput');
+
+    if (searchInput) {
+      searchInput.addEventListener('keyup', () => {
+        const term = searchInput.value.toLowerCase();
+        const items = JSON.parse(localStorage.getItem('items')) || [];
+        const filtered = items.filter(item =>
+          item.name.toLowerCase().includes(term) ||
+          item.description.toLowerCase().includes(term) ||
+          (item.category?.toLowerCase().includes(term) ?? false)
+        );
+        renderItems(filtered);
+      });
+    }
+    
   
     // Sort items by selected option
-    sortSelect.addEventListener('change', () => {
-      let sorted = [...items];
-      const option = sortSelect.value;
-  
-      if (option === 'price-high-to-low') sorted.sort((a, b) => b.price - a.price);
-      else if (option === 'price-low-to-high') sorted.sort((a, b) => a.price - b.price);
-      else if (option === 'alphabetical') sorted.sort((a, b) => a.name.localeCompare(b.name));
-      else if (option === 'category') sorted.sort((a, b) => a.category.localeCompare(b.category));
-  
-      renderItems(sorted);
-    });
-  
+    // const sortSelect = document.getElementById('sortSelect');
+
+    if (sortSelect !== null) {
+      sortSelect.addEventListener('change', () => {
+        const items = JSON.parse(localStorage.getItem('items')) || [];
+        let sorted = [...items];
+        const option = sortSelect.value;
+    
+        if (option === 'price-high-to-low') {
+          sorted.sort((a, b) => Number(b.price) - Number(a.price));
+        } else if (option === 'price-low-to-high') {
+          sorted.sort((a, b) => Number(a.price) - Number(b.price));
+        } else if (option === 'alphabetical') {
+          sorted.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+        } else if (option === 'category') {
+          sorted.sort((a, b) => (a.category || '').localeCompare(b.category || ''));
+        }
+    
+        renderItems(sorted);
+      });
+    }
+    
     
     function addToCart(itemId) {
       const allItems = JSON.parse(localStorage.getItem("items")) || [];
