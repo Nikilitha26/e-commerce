@@ -2,15 +2,11 @@
 document.addEventListener('DOMContentLoaded', function () {
   renderCheckoutTable();
 
-  const clearCartBtn = document.getElementById('clear-cart');
-  if (clearCartBtn) {
-    clearCartBtn.addEventListener('click', clearCart);
-  }
+  // const clearCartBtn = document.getElementById('clear-cart');
+  // if (clearCartBtn) {
+  //   clearCartBtn.addEventListener('click', clearCart);
+  // }
 
-  const currentYear = document.getElementById('current-year');
-  if (currentYear) {
-    currentYear.textContent = new Date().getFullYear();
-  }
 });
 
 // === Function to clear cart ===
@@ -70,9 +66,10 @@ function renderCheckoutTable() {
     `;
 
     purchasedItems.forEach(item => {
-      const itemTotal = item.quantity * item.price;
+      const price = parseFloat(item.price);
+      const itemTotal = item.quantity * price;
       subtotal += itemTotal;
-
+    
       tableHTML += `
         <tr>
           <td><img src="${item.image[0]}" class="checkout-item-image"></td>
@@ -81,7 +78,7 @@ function renderCheckoutTable() {
           <td>
             <input type="number" value="${item.quantity}" min="1" class="quantity-input" data-item-id="${item.id}">
           </td>
-          <td>R ${item.price.toFixed(2)}</td>
+          <td>R ${price.toFixed(2)}</td>
           <td class="item-total">R ${itemTotal.toFixed(2)}</td>
           <td>
             <button class="remove-item-btn" data-item-id="${item.id}">Remove</button>
@@ -89,6 +86,7 @@ function renderCheckoutTable() {
         </tr>
       `;
     });
+    
 
     tableHTML += `
       <tr>
@@ -232,9 +230,22 @@ function removeItem(itemId) {
 }
 
 // === Update cart badge ===
+// function updateCartCount() {
+//   const cart = JSON.parse(localStorage.getItem('cart')) || [];
+//   const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+//   const badge = document.getElementById('cart-count');
+//   if (badge) badge.textContent = count;
+// }
+
 function updateCartCount() {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const badge = document.getElementById('cart-count');
-  if (badge) badge.textContent = count;
+  let totalCount = 0;
+  cart.forEach(item => {
+    totalCount += item.quantity;
+  });
+
+  const cartCountElement = document.getElementById('cart-count');
+  if (cartCountElement) {
+    cartCountElement.textContent = totalCount;
+  }
 }

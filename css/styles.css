@@ -1035,7 +1035,7 @@ footer {
     margin-top: 70px;
   }
   
-  .clear-cart-btn {
+  /* .clear-cart-btn {
     background-color: #d4a373;
     color: white;
     border: none;
@@ -1050,6 +1050,9 @@ footer {
   .clear-cart-btn:hover {
     background-color: white;
     color: #d4a373;
+  } */
+  .clear-cart-btn {
+    margin-bottom: 1rem; /* or whatever spacing you want */
   }
 
   #continue-shopping{
@@ -1059,7 +1062,7 @@ footer {
   }
 
   #continue-shopping:hover{
-    background-color: white;
+    background-color: white !important ;
     color: #d4a373 !important;
   }
   
