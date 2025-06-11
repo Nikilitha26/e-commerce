@@ -623,6 +623,32 @@ window.addEventListener('load', () => {
     }, 2000); 
   });
 
+  document.addEventListener("DOMContentLoaded", () => {
+    const spinnerOverlay = document.getElementById("spinner-overlay");
+
+    // Check if user has visited before
+    const hasVisited = localStorage.getItem("hasVisited");
+
+    if (!hasVisited) {
+      // Show spinner for first-time visitor
+      spinnerOverlay.style.display = "flex";
+
+      // Set the flag so spinner won't show again
+      localStorage.setItem("hasVisited", "true");
+
+      // Simulate load time
+      setTimeout(() => {
+        spinnerOverlay.style.opacity = "0";
+        setTimeout(() => {
+          spinnerOverlay.style.display = "none";
+        }, 300);
+      }, 1500); // Adjust spinner duration (ms)
+    } else {
+      // Hide spinner immediately for returning visitors
+      spinnerOverlay.style.display = "none";
+    }
+  });
+
   // document.getElementById("currentYear").textContent = new Date().getFullYear();
 
   </script>
