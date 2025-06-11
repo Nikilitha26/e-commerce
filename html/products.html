@@ -178,6 +178,35 @@
       background-color: var(--gold-dark);
     }
 
+    /* spinner */
+    #spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  transition: opacity 0.3s ease;
+}
+
+.custom-spinner {
+  border: 6px solid var(--blush);
+  border-top: 6px solid var(--gold);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
     /* Footer */
     footer {
       background-color: white;
@@ -216,6 +245,10 @@
 </head>
 
 <body>
+<!-- spinner -->
+<div id="spinner-overlay">
+  <div class="custom-spinner"></div>
+</div>
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm">
@@ -334,6 +367,17 @@
     cartCountElement.textContent = totalCount;
   }
 }
+
+window.addEventListener('load', () => {
+    setTimeout(() => {
+      const spinner = document.getElementById('spinner-overlay');
+      if (spinner) {
+        spinner.style.opacity = '0';
+        setTimeout(() => spinner.remove(), 300);
+      }
+    }, 2000);
+  });
+
 
 // Run it on page load
 document.addEventListener('DOMContentLoaded', updateCartCount);

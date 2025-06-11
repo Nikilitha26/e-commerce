@@ -1,4 +1,4 @@
-
+// document.addEventListener('DOMContentLoaded', () => {
 
 
 // footer
@@ -34,25 +34,26 @@ function addItem() {
     renderItems();
   }
  
-function renderItems(items) {
-  const tbody = document.getElementById('products-tbody');
-  tbody.innerHTML = '';
-  items.forEach((product, index) => {
-    const row = document.createElement('tr');
-    row.innerHTML = `
-      <td>${index + 1}</td>
-      <td>${product.name}</td>
-      <td>${product.price}</td>
-      <td>${product.description}</td>
-      <td>
-        <button class="btn btn-primary" id="edit-btn-${index}">Edit</button>
-        <button class="btn btn-danger" id="remove-btn-${index}">Remove</button>
-      </td>
-    `;
-    tbody.appendChild(row);
-  });
-}
-
+  function renderItems(items) {
+    const tbody = document.getElementById('products-tbody');
+    tbody.innerHTML = '';
+    items.forEach((product, index) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${index + 1}</td>
+        <td><img src="${product.image}" alt="${product.name}" style="width: 80px; height: auto;"></td>
+        <td>${product.name}</td>
+        <td>${product.price}</td>
+        <td>${product.description}</td>
+        <td>
+          <button class="btn btn-primary" id="edit-btn-${index}">Edit</button>
+          <button class="btn btn-danger" id="remove-btn-${index}">Remove</button>
+        </td>
+      `;
+      tbody.appendChild(row);
+    });
+  }
+  
 // Function to update the items table
 function updateItemsTable() {
     const tableBody = document.querySelector('.table-bordered tbody');
@@ -111,8 +112,6 @@ function editItem(index) {
         saveChanges(index);
 
         
-
-        alert('Item Edited!');
     });
 
     const editModal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
@@ -128,9 +127,10 @@ function editItem(index) {
 function saveChanges(index) {
   const items = JSON.parse(localStorage.getItem('items')) || [];
 
-  const newImage = document.getElementById('image').value;
-  if (newImage.trim() !== '') {
-    items[index].image = newImage;
+  const newImage = document.getElementById('image').value.trim();
+  if (newImage !== '') {
+    // Convert comma-separated string to array of trimmed URLs
+    items[index].image = newImage.split(',').map(url => url.trim());
   }
 
   items[index].name = document.getElementById('username').value;
@@ -138,6 +138,20 @@ function saveChanges(index) {
   items[index].price = document.getElementById('price').value;
 
   localStorage.setItem('items', JSON.stringify(items));
+
+    // SweetAlert confirmation
+    Swal.fire({
+      title: 'Success!',
+      text: 'Item edited successfully.',
+      icon: 'success',
+      confirmButtonColor: '#d4a373', // your theme's gold color
+      confirmButtonText: 'OK',
+      background: 'white',
+      color: 'rgb(148, 118, 103)'
+    }).then(() => {
+      // Optional: Reload the page after closing the alert
+      location.reload();
+    });
 
   // Reset button
   const oldAddButton = document.getElementById('addProductButton');

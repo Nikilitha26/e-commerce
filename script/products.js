@@ -118,7 +118,7 @@ function CreateItem(id, name, category, image, description, quantity, price) {
     // Render all items on page
     function renderItems(itemArray) {
       const noResultsMessage = document.getElementById("no-results-message");
-      const itemsList = document.getElementById('items-list');  // <--- add this line here
+      const itemsList = document.getElementById('items-list');  
     
       if (!itemsList) {
         console.error("Element with id 'items-list' not found.");

@@ -1,6 +1,6 @@
-const currentYear = document.getElementById('current-year');
-if (currentYear) {
-  currentYear.textContent = new Date().getFullYear();
+const yearEl = document.getElementById("current-year") || document.getElementById("currentYear");
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
 }
 
 const currentURL = window.location.href;
